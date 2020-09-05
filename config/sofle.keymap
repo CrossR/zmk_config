@@ -10,10 +10,11 @@
 #define A_L1 &lt 1 A
 #define SCLN_L2 &lt 2 SCLN
 
-// TODO: Top key right key in raise into gaming layer maybe?
-//       Should remove the SPCCDT binds in there and the unused things like delete etc
-//       Move over useful things like m(ap) / i(nventory) / to fill in gaps?
+// TODO: Encoder push missing.
+// TODO: Gaming layer encoder changes.
 // TODO: Missing shifted keycodes for lots of lower.
+// TODO: Swap Non-US \| from hex code.
+// TODO: Mouse HID for wheel events.
 
 / {
     keymap {
@@ -24,17 +25,17 @@
 // |  ESC  |  1   |  2  |  3   |  4   |   5    |                  |    6   |  7 |  8  |  9  |   0  |       |
 // |  TAB  |  Q   |  W  |  E   |  R   |   T    |                  |    Y   |  U |  I  |  O  |   P  |   \   |
 // | ⌃     | A/L¹ |  S  |  D   |  F   |   G    |                  |    H   |  J |  K  |  L  | ;/L² |   '   |
-// | ( / ⇧ |  Z   |  X  |  C   |  V   |   B    | MUTE  |  |       |    N   |  M |  ,  |  .  |   /  | ) / ⇧ |
+// | ( / ⇧ |  Z   |  X  |  C   |  V   |   B    |       |  | MUTE  |    N   |  M |  ,  |  .  |   /  | ) / ⇧ |
 //                | GUI | ALT  |  [   | DEL/L¹ | SPACE |  | BKSPC | RET/L² |  ] | ALT | GUI |
             bindings = <
 &kp ESC  &kp NUM_1 &kp NUM_2 &kp NUM_3 &kp NUM_4 &kp NUM_5                  &kp NUM_6 &kp NUM_7 &kp NUM_8 &kp NUM_9 &kp NUM_0 &none
-&kp TAB  &kp Q     &kp W     &kp E     &kp R     &kp T                      &kp Y     &kp U     &kp I     &kp O     &kp P     &kp BSLH
-&kp RCTL A_L1      &kp S     &kp D     &kp F     &kp G                      &kp H     &kp J     &kp K     &kp L     SCLN_L2   &kp QUOT
-SPCCDT_L &kp Z     &kp X     &kp C     &kp V     &kp B  &cp M_MUTE &none    &kp N     &kp M     &kp CMMA  &kp DOT   &kp FSLH  SPCCDT_R
-                   &kp LGUI  &kp LALT  &kp LBKT  DEL_L1 &kp SPC    &kp BKSP RET_L2    &kp RBKT  &kp RALT  &kp RGUI
+&kp TAB  &kp Q     &kp W     &kp E     &kp R     &kp T                      &kp Y     &kp U     &kp I     &kp O     &kp P     &kp 0x64
+&kp LCTL A_L1      &kp S     &kp D     &kp F     &kp G                      &kp H     &kp J     &kp K     &kp L     SCLN_L2   &kp QUOT
+SPCCDT_L &kp Z     &kp X     &kp C     &kp V     &kp B  &none    &cp M_MUTE &kp N     &kp M     &kp CMMA  &kp DOT   &kp FSLH  SPCCDT_R
+                   &kp LGUI  &kp LALT  &kp LBKT  DEL_L1 &kp SPC  &kp BKSP   RET_L2    &kp RBKT  &kp RALT  &kp RGUI
             >;
 
-            sensor-bindings = <&inc_dec_cp M_VOLU M_VOLD &inc_dec_kp PGUP PGDN>;
+            sensor-bindings = <&inc_dec_kp PGUP PGDN &inc_dec_cp M_VOLU M_VOLD>;
         };
 
         lower_layer {
@@ -52,7 +53,7 @@ SPCCDT_L &kp Z     &kp X     &kp C     &kp V     &kp B  &cp M_MUTE &none    &kp 
                    &trans    &trans    &trans    &trans   &trans   &trans &trans    &trans    &trans    &trans
             >;
 
-            sensor-bindings = <&inc_dec_cp M_VOLU M_VOLD &inc_dec_kp PGUP PGDN>;
+            sensor-bindings = <&inc_dec_kp PGUP PGDN &inc_dec_cp M_VOLU M_VOLD>;
         };
 
         raise_layer {
@@ -70,7 +71,7 @@ SPCCDT_L &kp Z     &kp X     &kp C     &kp V     &kp B  &cp M_MUTE &none    &kp 
                   &trans   &trans   &trans   &trans  &trans   &trans  &trans   &trans    &trans   &trans
             >;
 
-            sensor-bindings = <&inc_dec_cp M_VOLU M_VOLD &inc_dec_kp PGUP PGDN>;
+            sensor-bindings = <&inc_dec_kp PGUP PGDN &inc_dec_cp M_VOLU M_VOLD>;
         };
 
         gaming_layer {
@@ -82,13 +83,13 @@ SPCCDT_L &kp Z     &kp X     &kp C     &kp V     &kp B  &cp M_MUTE &none    &kp 
 //               |     | ALT  |  I   |  M   |  SPACE |  | BKSPC | RET  |  ]    | ALT   | GUI  |
             bindings = <
 &kp ESC  &kp NUM_1 &kp NUM_2 &kp NUM_3 &kp NUM_4 &kp NUM_5                  &kp NUM_6 &kp NUM_7 &kp NUM_8 &kp NUM_9 &kp NUM_0 &tog 0
-&kp TAB  &kp Q     &kp W     &kp E     &kp R     &kp T                      &kp Y     &kp U     &kp I     &kp O     &kp P     &kp BSLH
-&kp RCTL &kp A     &kp S     &kp D     &kp F     &kp G                      &kp H     &kp J     &kp K     &kp L     &kp SCLN  &kp QUOT
+&kp TAB  &kp Q     &kp W     &kp E     &kp R     &kp T                      &kp Y     &kp U     &kp I     &kp O     &kp P     &kp 0x64
+&kp LCTL &kp A     &kp S     &kp D     &kp F     &kp G                      &kp H     &kp J     &kp K     &kp L     &kp SCLN  &kp QUOT
 &kp LSFT &kp Z     &kp X     &kp C     &kp V     &kp B  &cp M_MUTE &none    &kp N     &kp M     &kp CMMA  &kp DOT   &kp FSLH  &kp RSFT
                    &none     &kp LALT  &kp I     &kp M  &kp SPC    &kp BKSP &kp RET   &kp RBKT  &kp RALT  &kp RGUI
             >;
 
-            sensor-bindings = <&inc_dec_cp M_VOLU M_VOLD &inc_dec_kp PGUP PGDN>;
+            sensor-bindings = <&inc_dec_kp PGUP PGDN &inc_dec_cp M_VOLU M_VOLD>;
         };
     };
 };
