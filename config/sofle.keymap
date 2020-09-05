@@ -35,7 +35,7 @@ SPCCDT_L &kp Z     &kp X     &kp C     &kp V     &kp B  &none    &cp M_MUTE &kp 
                    &kp LGUI  &kp LALT  &kp LBKT  DEL_L1 &kp SPC  &kp BKSP   RET_L2    &kp RBKT  &kp RALT  &kp RGUI
             >;
 
-            sensor-bindings = <&inc_dec_kp PDGN PGUP &inc_dec_cp M_VOLU M_VOLD>;
+            sensor-bindings = <&inc_dec_kp PGDN PGUP &inc_dec_cp M_VOLU M_VOLD>;
         };
 
         lower_layer {
@@ -53,7 +53,7 @@ SPCCDT_L &kp Z     &kp X     &kp C     &kp V     &kp B  &none    &cp M_MUTE &kp 
                    &trans    &trans    &trans    &trans   &trans   &trans &trans    &trans    &trans    &trans
             >;
 
-            sensor-bindings = <&inc_dec_kp PDGN PGUP &inc_dec_cp M_VOLU M_VOLD>;
+            sensor-bindings = <&inc_dec_kp PGDN PGUP &inc_dec_cp M_VOLU M_VOLD>;
         };
 
         raise_layer {
@@ -71,7 +71,7 @@ SPCCDT_L &kp Z     &kp X     &kp C     &kp V     &kp B  &none    &cp M_MUTE &kp 
                   &trans   &trans   &kp GRAV &trans  &trans   &trans  &trans   &trans    &trans   &trans
             >;
 
-            sensor-bindings = <&inc_dec_kp PDGN PGUP &inc_dec_cp M_VOLU M_VOLD>;
+            sensor-bindings = <&inc_dec_kp PGDN PGUP &inc_dec_cp M_VOLU M_VOLD>;
         };
 
         gaming_layer {
@@ -89,7 +89,7 @@ SPCCDT_L &kp Z     &kp X     &kp C     &kp V     &kp B  &none    &cp M_MUTE &kp 
                    &none     &kp LALT  &kp I     &kp M  &kp SPC    &kp BKSP &kp RET   &kp RBKT  &kp RALT  &kp RGUI
             >;
 
-            sensor-bindings = <&inc_dec_kp PDGN PGUP &inc_dec_cp M_VOLU M_VOLD>;
+            sensor-bindings = <&inc_dec_kp PGDN PGUP &inc_dec_cp M_VOLU M_VOLD>;
         };
     };
 };
