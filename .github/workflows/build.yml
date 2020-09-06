@@ -50,7 +50,7 @@ jobs:
         id: west-build-sofle-left
         with:
           args: 'build "-s zmk/app -b nice_nano -- -DSHIELD=sofle_left -DZMK_CONFIG=/github/workspace/config"'
-      - name: Broken Syntax File
+      - name: Dump Sofle Left DTS File
         if: ${{ failure() }}
         run: cat -n build/zephyr/nice_nano.dts.pre.tmp
       - name: Sofle Left Kconfig file
