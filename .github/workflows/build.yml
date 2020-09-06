@@ -51,7 +51,7 @@ jobs:
         with:
           args: 'build "-s zmk/app -b nice_nano -- -DSHIELD=sofle_left -DZMK_CONFIG=/github/workspace/config"'
       - name: Dump Sofle DTS File
-        if: ${{ failure() }}
+        if: ${{ always() }}
         run: cat build/zephyr/nice_nano.dts.pre.tmp
       - name: Sofle Left Kconfig file
         run: cat build/zephyr/.config | grep -v "^#" | grep -v "^$"
