@@ -1,8 +1,29 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
 
-#define SPCCDT_L &mt LSFT LPRN
-#define SPCCDT_R &mt RSFT RPRN
+#define EXCLM &lsft NUM_1
+#define DQUOT &lsft NUM_2
+#define GBP   &lsft NUM_3
+#define DOLLR &lsft NUM_4
+#define PRCNT &lsft NUM_5
+#define CARET &rsft NUM_6
+#define AMPER &rsft NUM_7
+#define ASTER &rsft NUM_8
+#define LBRKT &rsft NUM_9
+#define RBRKT &rsft NUM_0
+#define UNDER &rsft MINUS
+#define PLUS  &rsft EQL
+
+#define ATSMB &rsft QUOT
+#define PIPES &rsft 0x64
+#define COLON &rsft SCLN
+#define POUND &rsft TILD
+
+#define LCURL &rsft LBKT
+#define RCURL &rsft RBKT
+
+#define SPCCDT_L &mt LSFT NUM_9
+#define SPCCDT_R &mt RSFT NUM_1
 
 #define DEL_L1 &lt 1 DEL
 #define RET_L2 &lt 2 RET
@@ -17,6 +38,17 @@
 // TODO: Mouse HID for wheel events.
 
 / {
+    behaviours {
+        spc_cdt: space_cadet_shift {
+            compatible = "zmk,behavior-hold-tap";
+            label = "Space Cadet Shift";
+            #binding-cells = <2>;
+            flavor = "tap-preferred";
+            tapping_term_ms = <120>;
+            bindings = <&kp>, <&rsft>;
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
