@@ -22,8 +22,8 @@
 #define LCURL &rsft LBKT
 #define RCURL &rsft RBKT
 
-#define SPCCDT_L &spc_cdt LSFT NUM_9
-#define SPCCDT_R &spc_cdt RSFT NUM_1
+#define SPCCDT_L &mt LSFT NUM_9
+#define SPCCDT_R &mt RSFT NUM_1
 
 #define DEL_L1 &lt 1 DEL
 #define RET_L2 &lt 2 RET
@@ -38,16 +38,6 @@
 // TODO: Mouse HID for wheel events.
 
 / {
-    behaviours {
-        spc_cdt: space_cadet_shift {
-            compatible = "zmk,behavior-hold-tap";
-            label = "Space Cadet Shift";
-            #binding-cells = <2>;
-            flavor = "tap-preferred";
-            tapping_term_ms = <120>;
-            bindings = <&kp>, <&rsft>;
-        };
-    };
 
     keymap {
         compatible = "zmk,keymap";
