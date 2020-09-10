@@ -32,9 +32,6 @@
 #define SCLN_L2 &lt 2 SCLN
 
 // TODO: Encoder push missing.
-// TODO: Gaming layer encoder changes.
-// TODO: Missing shifted keycodes for lots of lower.
-// TODO: Swap Non-US \| from hex code.
 // TODO: Mouse HID for wheel events.
 
 / {
