@@ -44,8 +44,8 @@
             compatible = "zmk,behavior-hold-tap";
             label = "Space Cadet Shift";
             #binding-cells = <2>;
-            flavor = "balanced";
-            tapping_term_ms = <175>;
+            flavor = "hold-preferred";
+            tapping_term_ms = <200>;
             bindings = <&kp>, <&rsft>;
         };
     };
@@ -79,11 +79,11 @@ SPCCDT_L &kp Z     &kp X     &kp C     &kp V     &kp B  &none    &cp M_MUTE &kp 
 // |       |     |     |      |      |      |        |  |       |  $   |  *    |  &    |      |       |       |
 //               |     |      |      |------|        |  |       |      |       |       |      |
             bindings = <
-&trans   &kp F1    &kp F2    &kp F3    &kp F4    &kp F5                   &kp F6    &kp F7    &kp F8    &kp F9    &kp F10   &kp F11
-&trans   &kp NUM_1 &kp NUM_2 &kp NUM_3 &kp NUM_4 &kp NUM_5                &kp NUM_6 &kp NUM_7 &kp NUM_8 &kp NUM_9 &kp NUM_0 &kp F12
-&trans   &trans    EXCLM     PRCNT     &kp EQL   PLUS                     &kp MINUS UNDER     CARET     &trans    &trans    &trans
-&trans   &trans    &trans    &trans    &trans    &trans   &trans   &trans DOLLR     ASTER     AMPER     &trans    &trans    &trans
-                   &trans    &trans    &trans    &trans   &trans   &trans &trans    &trans    &trans    &trans
+&trans &kp F1    &kp F2    &kp F3    &kp F4    &kp F5                   &kp F6    &kp F7    &kp F8    &kp F9    &kp F10   &kp F11
+&trans &kp NUM_1 &kp NUM_2 &kp NUM_3 &kp NUM_4 &kp NUM_5                &kp NUM_6 &kp NUM_7 &kp NUM_8 &kp NUM_9 &kp NUM_0 &kp F12
+&trans &trans    EXCLM     PRCNT     &kp EQL   PLUS                     &kp MINUS UNDER     CARET     &trans    &trans    &trans
+&trans &trans    &trans    &trans    &trans    &trans   &trans   &trans DOLLR     ASTER     AMPER     &trans    &trans    &trans
+                 &trans    &trans    &trans    &trans   &trans   &trans &trans    &trans    &trans    &trans
             >;
 
             sensor-bindings = <&inc_dec_kp PGDN PGUP &inc_dec_cp M_VOLU M_VOLD>;
@@ -93,15 +93,15 @@ SPCCDT_L &kp Z     &kp X     &kp C     &kp V     &kp B  &none    &cp M_MUTE &kp 
 // ------------------------------------------------------------------------------------------------------------
 // |     |      |      |       |       |      |                |      |      |       |      |       |  L³   |
 // |     |      |  ^   |       |       |      |                |      |      |       |      |       |       |
-// |     |  <   |  V   |  >    |       |      |                |      |      |       |      |-------|       |
-// |     | PREV | PLAY | NEXT  |       |      |      |  |      |  #   |  ~   |       |      |       |       |
-//              |      |       |   `   |      |      |  |      |------|      |       |      |
+// |     |  <   |  V   |  >    |   [   |      |                |  #   |  ]   |       |      |-------|       |
+// |     | PREV | PLAY | NEXT  |       |      |      |  |      |      |  ~   |       |      |       |       |
+//              |      |       |       |  `   |      |  |      |------|      |       |      |
             bindings = <
-&trans   &trans   &trans   &trans   &trans   &trans                   &trans   &trans    &trans   &trans   &trans    &tog 3
-&trans   &trans   &kp UARW &trans   &trans   &trans                   &trans   &trans    &trans   &trans   &trans    &trans
-&trans   &kp LARW &kp DARW &kp RARW &trans   &trans                   &trans   &trans    &trans   &trans   &trans    &trans
-&trans   PREVI    PLAY     NEXT     &trans   &trans  &trans   &trans  &kp 0x32 TILDE     &trans   &trans   &trans    &trans
-                  &trans   &trans   &kp GRAV &trans  &trans   &trans  &trans   &trans    &trans   &trans
+&trans &trans   &trans   &trans   &trans   &trans                   &trans   &trans   &trans  &trans &trans &tog 3
+&trans &trans   &kp UARW &trans   &trans   &trans                   &trans   &trans   &trans  &trans &trans &trans
+&trans &kp LARW &kp DARW &kp RARW &kp LBKT &trans                   &kp 0x32 &kp RBKT &trans  &trans &trans &trans
+&trans PREVI    PLAY     NEXT     &trans   &trans   &trans  &trans  &trans   TILDE    &trans  &trans &trans &trans
+                &trans   &trans   &trans   &kp GRAV &trans  &trans  &trans   &trans   &trans  &trans
             >;
 
             sensor-bindings = <&inc_dec_kp PGDN PGUP &inc_dec_cp M_VOLU M_VOLD>;
