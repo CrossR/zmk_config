@@ -50,9 +50,11 @@ jobs:
         id: west-build-sofle-left
         with:
           args: 'build "-s zmk/app -b nice_nano -- -DSHIELD=sofle_left -DZMK_CONFIG=/github/workspace/config"'
-      - name: Sofle DTS File
+      - name: Sofle Temp DTS File
         if: ${{ always() }}
         run: cat -n build/zephyr/nice_nano.dts.pre.tmp
+      - name: Sofle Left Compiled DTS File
+        run: cat -n build/zephyr/zephyr.dts
       - name: Sofle Left Kconfig file
         run: cat build/zephyr/.config | grep -v "^#" | grep -v "^$"
       - name: Rename zmk.uf2
@@ -69,6 +71,8 @@ jobs:
           args: 'build "--pristine -s zmk/app -b nice_nano -- -DSHIELD=sofle_right -DZMK_CONFIG=/github/workspace/config"'
       - name: Sofle Right Kconfig file
         run: cat build/zephyr/.config | grep -v "^#" | grep -v "^$"
+      - name: Sofle Right Compiled DTS File
+        run: cat -n build/zephyr/zephyr.dts
       - name: Rename zmk.uf2
         run: cp build/zephyr/zmk.uf2 sofle_right_nice_nano.uf2
       - name: Archive (Sofle Right)
