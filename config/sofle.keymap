@@ -50,6 +50,15 @@
 // TODO: Encoder push missing.
 // TODO: Mouse HID for wheel events.
 
+&left_encoder {
+    resolution = <2>;
+};
+
+&right_encoder {
+    resolution = <2>;
+};
+
+
 / {
     behaviors {
         spc_cdt: space_cadet_shift {
@@ -60,14 +69,6 @@
             tapping_term_ms = <200>;
             bindings = <&kp>, <&rsft>;
         };
-    };
-
-    left_encoder: encoder_left {
-        resolution = <2>;
-    };
-
-    right_encoder: encoder_right {
-        resolution = <2>;
     };
 
     keymap {
