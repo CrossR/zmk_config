@@ -6,6 +6,10 @@ jobs:
   build:
     runs-on: ubuntu-latest
     name: Build Test
+    strategy:
+      matrix:
+        shield: [sofle_left, sofle_right, settings_reset]
+
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -45,38 +49,20 @@ jobs:
         id: west-zephyr-export
         with:
           args: 'zephyr-export'
-      - name: West Build (Sofle Left)
+      - name: West Build
         uses: 'docker://zmkfirmware/zephyr-west-action-arm:latest'
-        id: west-build-sofle-left
+        id: west-build
         with:
-          args: 'build "-s zmk/app -b nice_nano -- -DSHIELD=sofle_left -DZMK_CONFIG=/github/workspace/config"'
-      - name: Sofle Temp DTS File
+          args: 'build "-s zmk/app -b nice_nano -- -DSHIELD=${{ matrix.shield }} -DZMK_CONFIG=/github/workspace/config"'
+      - name: Temp DTS File
         if: ${{ always() }}
         run: cat -n build/zephyr/nice_nano.dts.pre.tmp
-      - name: Sofle Left Compiled DTS File
+      - name: Compiled DTS File
         run: cat -n build/zephyr/zephyr.dts
-      - name: Sofle Left Kconfig file
+      - name: Kconfig file
         run: cat build/zephyr/.config | grep -v "^#" | grep -v "^$"
-      - name: Rename zmk.uf2
-        run: cp build/zephyr/zmk.uf2 sofle_left_nice_nano.uf2
-      - name: Archive (Sofle Left)
+      - name: Archive
         uses: actions/upload-artifact@v2
         with:
-          name: firmware
-          path: sofle_left_nice_nano.uf2
-      - name: West Build (Sofle Right)
-        uses: 'docker://zmkfirmware/zephyr-west-action-arm:latest'
-        id: west-build-sofle-right
-        with:
-          args: 'build "--pristine -s zmk/app -b nice_nano -- -DSHIELD=sofle_right -DZMK_CONFIG=/github/workspace/config"'
-      - name: Sofle Right Kconfig file
-        run: cat build/zephyr/.config | grep -v "^#" | grep -v "^$"
-      - name: Sofle Right Compiled DTS File
-        run: cat -n build/zephyr/zephyr.dts
-      - name: Rename zmk.uf2
-        run: cp build/zephyr/zmk.uf2 sofle_right_nice_nano.uf2
-      - name: Archive (Sofle Right)
-        uses: actions/upload-artifact@v2
-        with:
-          name: firmware
-          path: sofle_right_nice_nano.uf2
+          name: "nice_nano-${{ matrix.shield }}-zmk.uf2"
+          path: build/zephyr/zmk.uf2
