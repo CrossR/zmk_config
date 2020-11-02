@@ -1,11 +1,11 @@
 manifest:
   remotes:
     - name: zmkfirmware
-      url-base: https://github.com/CrossR
+      url-base: https://github.com/okke-formsma
   projects:
     - name: zmk
       remote: zmkfirmware
-      revision: all
+      revision: hid-keys-modifiers
       import: app/west.yml
   self:
     path: config

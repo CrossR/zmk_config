@@ -3,30 +3,30 @@
 #include <dt-bindings/zmk/bt.h>
 
 // Shifted key codes for UK keyboard layout
-#define EXCLM &lsft NUM_1
-#define DQUOT &lsft NUM_2
-#define GBP   &lsft NUM_3
-#define DOLLR &lsft NUM_4
-#define PRCNT &lsft NUM_5
-#define CARET &rsft NUM_6
-#define AMPER &rsft NUM_7
-#define ASTER &rsft NUM_8
-#define LBRKT &rsft NUM_9
-#define RBRKT &rsft NUM_0
-#define UNDER &rsft MINUS
-#define PLUS  &rsft EQL
+#define EXCLM &kp LS(NUM_1)
+#define DQUOT &kp LS(NUM_2)
+#define GBP   &kp LS(NUM_3)
+#define DOLLR &kp LS(NUM_4)
+#define PRCNT &kp LS(NUM_5)
+#define CARET &kp RS(NUM_6)
+#define AMPER &kp RS(NUM_7)
+#define ASTER &kp RS(NUM_8)
+#define LBRKT &kp RS(NUM_9)
+#define RBRKT &kp RS(NUM_0)
+#define UNDER &kp RS(MINUS)
+#define PLUS  &kp RS(EQL)
 
-#define ATSMB &rsft QUOT
-#define PIPES &rsft 0x64
-#define COLON &rsft SCLN
-#define TILDE &rsft TILD
+#define ATSMB &kp RS(QUOT)
+#define PIPES &kp RS(0x64)
+#define COLON &kp RS(SCLN)
+#define TILDE &kp RS(TILD)
 
-#define LCURL &rsft LBKT
-#define RCURL &rsft RBKT
+#define LCURL &kp RS(LBKT)
+#define RCURL &kp RS(RBKT)
 
 // Shift on Hold / Parenthesis on Tap
-#define SPCCDT_L &spc_cdt LSFT NUM_9
-#define SPCCDT_R &spc_cdt RSFT NUM_0
+#define SPCCDT_L &mt LSFT RS(NUM_9)
+#define SPCCDT_R &mt RSFT RS(NUM_0)
 
 // Layer on Hold / Key on Tap
 #define DEL_L1 &lt 1 DEL
@@ -58,19 +58,7 @@
     resolution = <2>;
 };
 
-
 / {
-    behaviors {
-        spc_cdt: space_cadet_shift {
-            compatible = "zmk,behavior-hold-tap";
-            label = "Space Cadet Shift";
-            #binding-cells = <2>;
-            flavor = "hold-preferred";
-            tapping_term_ms = <200>;
-            bindings = <&kp>, <&rsft>;
-        };
-    };
-
     keymap {
         compatible = "zmk,keymap";
 
