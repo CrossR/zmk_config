@@ -1,11 +1,11 @@
 manifest:
   remotes:
     - name: zmkfirmware
-      url-base: https://github.com/innovaker
+      url-base: https://github.com/zmkfirmware
   projects:
     - name: zmk
       remote: zmkfirmware
-      revision: hid-keys-modifiers-rebase
+      revision: main
       import: app/west.yml
   self:
     path: config
