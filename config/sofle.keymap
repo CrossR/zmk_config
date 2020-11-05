@@ -1,24 +1,53 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/bt.h>
 
-#define SPCCDT_L &mt LSFT LPRN
-#define SPCCDT_R &mt RSFT RPRN
+// Shifted key codes for UK keyboard layout
+#define DQUOT &kp LS(NUM_2)
+#define GBP   &kp LS(NUM_3)
 
+#define ATSMB &kp RS(QUOT)
+#define PIPES &kp RS(NON_US_BSLH)
+
+// Shift on Hold / Parenthesis on Tap
+#define SPCCDT_L &mt LSFT LPAR
+#define SPCCDT_R &mt RSFT RPAR
+
+// Layer on Hold / Key on Tap
 #define DEL_L1 &lt 1 DEL
 #define RET_L2 &lt 2 RET
-
 #define A_L1    &lt 1 A
 #define SCLN_L2 &lt 2 SCLN
 
+// Media Keys
 #define PREVI &cp M_PREV
 #define PLAY  &cp M_PLAY
 #define NEXT  &cp M_NEXT
 
+// Game keys
+// Random-ish unused buttons for binding
+#define GAME_1 LS(LC(LA(N1)))
+#define GAME_2 LS(LC(LA(N2)))
+#define GAME_3 LS(LC(LA(N3)))
+
+// Bluetooth Profile Management
+#define BTCLR &bt BT_CLR
+#define BT1 &bt BT_SEL 0
+#define BT2 &bt BT_SEL 1
+#define BT3 &bt BT_SEL 2
+#define BT4 &bt BT_SEL 3
+#define BT5 &bt BT_SEL 4
+
 // TODO: Encoder push missing.
-// TODO: Gaming layer encoder changes.
-// TODO: Missing shifted keycodes for lots of lower.
-// TODO: Swap Non-US \| from hex code.
 // TODO: Mouse HID for wheel events.
+
+&left_encoder {
+    resolution = <2>;
+};
+
+&right_encoder {
+    resolution = <2>;
+};
 
 / {
     keymap {
@@ -46,15 +75,15 @@ SPCCDT_L &kp Z     &kp X     &kp C     &kp V     &kp B  &none    &cp M_MUTE &kp 
 // ------------------------------------------------------------------------------------------------------------
 // |       |  F1 |  F2 |  F3  |  F4  |  F5  |                   |  F6  |  F7   |  F8   |  F9  |  F10  |  F11  |
 // |       |  1  |  2  |  3   |  4   |  5   |                   |  6   |  7    |  8    |  9   |  0    |  F12  |
-// |       |-----|     |      |  =   |  +   |                   |  -   |  _    |  ^    |      |       |       |
-// |       |     |     |      |  !   |  %   |        |  |       |  $   |  *    |  &    |      |       |       |
+// |       |-----|  !  |  %   |  =   |  +   |                   |  -   |  _    |  ^    |      |       |       |
+// |       |     |     |      |      |      |        |  |       |  $   |  *    |  &    |      |       |       |
 //               |     |      |      |------|        |  |       |      |       |       |      |
             bindings = <
-&trans   &kp F1    &kp F2    &kp F3    &kp F4    &kp F5                   &kp F6    &kp F7    &kp F8    &kp F9    &kp F10   &kp F11
-&trans   &kp NUM_1 &kp NUM_2 &kp NUM_3 &kp NUM_4 &kp NUM_5                &kp NUM_6 &kp NUM_7 &kp NUM_8 &kp NUM_9 &kp NUM_0 &kp F12
-&trans   &trans    &trans    &trans    &kp EQL   &kp KPLS                 &trans    &trans    &trans    &trans    &trans    &trans
-&trans   &trans    &trans    &trans    &trans    &trans   &trans   &trans &trans    &trans    &trans    &trans    &trans    &trans
-                   &trans    &trans    &trans    &trans   &trans   &trans &trans    &trans    &trans    &trans
+&trans &kp F1    &kp F2    &kp F3    &kp F4    &kp F5                   &kp F6    &kp F7    &kp F8    &kp F9    &kp F10   &kp F11
+&trans &kp NUM_1 &kp NUM_2 &kp NUM_3 &kp NUM_4 &kp NUM_5                &kp NUM_6 &kp NUM_7 &kp NUM_8 &kp NUM_9 &kp NUM_0 &kp F12
+&trans &trans    &kp EXCL  &kp PRCNT &kp EQL   &kp PLUS                 &kp MINUS &kp UNDER &kp CARET &trans    &trans    &trans
+&trans &trans    &trans    &trans    &trans    &trans   &trans   &trans &kp DLLR  &kp ASTRK &kp AMPS  &trans    &trans    &trans
+                 &trans    &trans    &trans    &trans   &trans   &trans &trans    &trans    &trans    &trans
             >;
 
             sensor-bindings = <&inc_dec_kp PGDN PGUP &inc_dec_cp M_VOLU M_VOLD>;
@@ -62,17 +91,17 @@ SPCCDT_L &kp Z     &kp X     &kp C     &kp V     &kp B  &none    &cp M_MUTE &kp 
 
         raise_layer {
 // ------------------------------------------------------------------------------------------------------------
-// |     |      |      |       |       |      |                |      |      |       |      |       |  L³   |
+// | CLR | BT1  | BT2  | BT3   | BT4   | BT5  |                |      |      |       |      |       |  L³   |
 // |     |      |  ^   |       |       |      |                |      |      |       |      |       |       |
-// |     |  <   |  V   |  >    |       |      |                |      |      |       |      |-------|       |
-// |     | PREV | PLAY | NEXT  |       |      |      |  |      |  #   |  ~   |       |      |       |       |
-//              |      |       |   `   |      |      |  |      |------|      |       |      |
+// |     |  <   |  V   |  >    |   [   |      |                |  #   |  ]   |       |      |-------|       |
+// |     | PREV | PLAY | NEXT  |       |      |      |  |      |      |  ~   |       |      |       |       |
+//              |      |       |       |  `   |      |  |      |------|      |       |      |
             bindings = <
-&trans   &trans   &trans   &trans   &trans   &trans                   &trans   &trans    &trans   &trans   &trans    &tog 3
-&trans   &trans   &kp UARW &trans   &trans   &trans                   &trans   &trans    &trans   &trans   &trans    &trans
-&trans   &kp LARW &kp DARW &kp RARW &trans   &trans                   &trans   &trans    &trans   &trans   &trans    &trans
-&trans   PREVI    PLAY     NEXT     &trans   &trans  &trans   &trans  &trans   &trans    &trans   &trans   &trans    &trans
-                  &trans   &trans   &kp GRAV &trans  &trans   &trans  &trans   &trans    &trans   &trans
+BTCLR  BT1      BT2      BT3      BT4      BT5                      &trans   &trans     &trans  &trans &trans &tog 3
+&trans &trans   &kp UARW &trans   &trans   &trans                   &trans   &trans     &trans  &trans &trans &trans
+&trans &kp LARW &kp DARW &kp RARW &kp LBKT &trans                   &kp 0x32 &kp RBKT   &trans  &trans &trans &trans
+&trans PREVI    PLAY     NEXT     &trans   &trans   &trans  &trans  &trans   &kp TILDE2 &trans  &trans &trans &trans
+                &trans   &trans   &trans   &kp GRAV &trans  &trans  &trans   &trans     &trans  &trans
             >;
 
             sensor-bindings = <&inc_dec_kp PGDN PGUP &inc_dec_cp M_VOLU M_VOLD>;
@@ -89,13 +118,11 @@ SPCCDT_L &kp Z     &kp X     &kp C     &kp V     &kp B  &none    &cp M_MUTE &kp 
 &kp ESC  &kp NUM_1 &kp NUM_2 &kp NUM_3 &kp NUM_4 &kp NUM_5                  &kp NUM_6 &kp NUM_7 &kp NUM_8 &kp NUM_9 &kp NUM_0 &tog 3
 &kp TAB  &kp Q     &kp W     &kp E     &kp R     &kp T                      &kp Y     &kp U     &kp I     &kp O     &kp P     &kp 0x64
 &kp LCTL &kp A     &kp S     &kp D     &kp F     &kp G                      &kp H     &kp J     &kp K     &kp L     &kp SCLN  &kp QUOT
-&kp LSFT &kp Z     &kp X     &kp C     &kp V     &kp B  &kp 0x5B   &none    &kp N     &kp M     &kp CMMA  &kp DOT   &kp FSLH  &kp RSFT
+&kp LSFT &kp Z     &kp X     &kp C     &kp V     &kp B  &kp GAME_1 &none    &kp N     &kp M     &kp CMMA  &kp DOT   &kp FSLH  &kp RSFT
                    &kp LALT  &kp RET   &kp I     &kp M  &kp SPC    &kp BKSP &kp RET   &kp RBKT  &kp RALT  &kp RGUI
             >;
 
-            // Set encoder on left hand to have Keypad 1 and 2, which are unlikely to be used in game.
-            // This way, they can be bound to any random not really used action.
-            sensor-bindings = <&inc_dec_kp 0x59 0x5A &inc_dec_cp M_VOLU M_VOLD>;
+            sensor-bindings = <&inc_dec_kp GAME_2 GAME_3 &inc_dec_cp M_VOLU M_VOLD>;
         };
     };
 };
