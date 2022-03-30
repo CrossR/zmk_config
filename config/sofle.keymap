@@ -18,6 +18,7 @@
 #define RET_L2 &lt 2 RET
 #define A_L1    &lt 1 A
 #define SCLN_L2 &lt 2 SCLN
+#define RET_L4 &lt 4 RET
 
 // Media Keys
 #define PREVI &cp M_PREV
@@ -59,13 +60,13 @@
 // |  TAB  |  Q   |  W  |  E   |  R   |   T    |                  |    Y   |  U |  I  |  O  |   P  |   \   |
 // | ⌃     | A/L¹ |  S  |  D   |  F   |   G    |                  |    H   |  J |  K  |  L  | ;/L² |   '   |
 // | ( / ⇧ |  Z   |  X  |  C   |  V   |   B    |       |  | MUTE  |    N   |  M |  ,  |  .  |   /  | ) / ⇧ |
-//                | GUI | ALT  |  [   | DEL/L¹ | SPACE |  | BKSPC | RET/L² |  ] | ALT | GUI |
+//                | ALT | GUI  |  [   | DEL/L¹ | SPACE |  | BKSPC | RET/L² |  ] | ALT | GUI |
             bindings = <
-&kp ESC  &kp NUM_1 &kp NUM_2 &kp NUM_3 &kp NUM_4 &kp NUM_5                  &kp NUM_6 &kp NUM_7 &kp NUM_8 &kp NUM_9 &kp NUM_0 &none
+&kp ESC  &kp NUM_1 &kp NUM_2 &kp NUM_3 &kp NUM_4 &kp NUM_5                  &kp NUM_6 &kp NUM_7 &kp NUM_8 &kp NUM_9 &kp NUM_0 &tog 3
 &kp TAB  &kp Q     &kp W     &kp E     &kp R     &kp T                      &kp Y     &kp U     &kp I     &kp O     &kp P     &kp 0x64
 &kp LCTL A_L1      &kp S     &kp D     &kp F     &kp G                      &kp H     &kp J     &kp K     &kp L     SCLN_L2   &kp QUOT
 SPCCDT_L &kp Z     &kp X     &kp C     &kp V     &kp B  &none    &cp M_MUTE &kp N     &kp M     &kp CMMA  &kp DOT   &kp FSLH  SPCCDT_R
-                   &kp LGUI  &kp LALT  &kp LBKT  DEL_L1 &kp SPC  &kp BKSP   RET_L2    &kp RBKT  &kp RALT  &kp RGUI
+                   &kp LALT  &kp LGUI  &kp LBKT  DEL_L1 &kp SPC  &kp BKSP   RET_L2    &kp RBKT  &kp RALT  &kp RGUI
             >;
 
             sensor-bindings = <&inc_dec_kp PGDN PGUP &inc_dec_cp M_VOLU M_VOLD>;
@@ -76,7 +77,7 @@ SPCCDT_L &kp Z     &kp X     &kp C     &kp V     &kp B  &none    &cp M_MUTE &kp 
 // |       |  F1 |  F2 |  F3  |  F4  |  F5  |                   |  F6  |  F7   |  F8   |  F9  |  F10  |  F11  |
 // |       |  1  |  2  |  3   |  4   |  5   |                   |  6   |  7    |  8    |  9   |  0    |  F12  |
 // |       |-----|  !  |  %   |  =   |  +   |                   |  -   |  _    |  ^    |      |       |       |
-// |       |     |     |      |      |      |        |  |       |  $   |  *    |  &    |      |       |       |
+// |       |     |     |      |      |  ~   |        |  |       |  $   |  &    |  _    |      |       |       |
 //               |     |      |      |------|        |  |       |      |       |       |      |
             bindings = <
 &trans &kp F1    &kp F2    &kp F3    &kp F4    &kp F5                   &kp F6    &kp F7    &kp F8    &kp F9    &kp F10   &kp F11
@@ -97,7 +98,7 @@ SPCCDT_L &kp Z     &kp X     &kp C     &kp V     &kp B  &none    &cp M_MUTE &kp 
 // |     | PREV | PLAY | NEXT  |       |      |      |  |      |      |  ~   |       |      |       |       |
 //              |      |       |       |  `   |      |  |      |------|      |       |      |
             bindings = <
-BTCLR  BT1      BT2      BT3      BT4      BT5                      &trans   &trans     &trans  &trans &trans &tog 3
+BTCLR  BT1      BT2      BT3      BT4      BT5                      &trans   &trans     &trans  &trans &trans &trans
 &trans &trans   &kp UARW &trans   &trans   &trans                   &trans   &trans     &trans  &trans &trans &trans
 &trans &kp LARW &kp DARW &kp RARW &kp LBKT &trans                   &kp 0x32 &kp RBKT   &trans  &trans &trans &trans
 &trans PREVI    PLAY     NEXT     &trans   &trans   &trans  &trans  &trans   &kp TILDE2 &trans  &trans &trans &trans
@@ -119,7 +120,25 @@ BTCLR  BT1      BT2      BT3      BT4      BT5                      &trans   &tr
 &kp TAB  &kp Q     &kp W     &kp E     &kp R     &kp T                      &kp Y     &kp U     &kp I     &kp O     &kp P     &kp 0x64
 &kp LCTL &kp A     &kp S     &kp D     &kp F     &kp G                      &kp H     &kp J     &kp K     &kp L     &kp SCLN  &kp QUOT
 &kp LSFT &kp Z     &kp X     &kp C     &kp V     &kp B  &kp GAME_1 &none    &kp N     &kp M     &kp CMMA  &kp DOT   &kp FSLH  &kp RSFT
-                   &kp LALT  &kp RET   &kp I     &kp M  &kp SPC    &kp BKSP &kp RET   &kp RBKT  &kp RALT  &kp RGUI
+                   &kp LALT  &kp RET   &kp I     &kp M  &kp SPC    &kp BKSP RET_L4    &kp RBKT  &kp RALT  &kp RGUI
+            >;
+
+            sensor-bindings = <&inc_dec_kp GAME_2 GAME_3 &inc_dec_cp M_VOLU M_VOLD>;
+        };
+
+        gaming_alt_layer {
+// ------------------------------------------------------------------------------------------------------------
+// |     |  F1 | F2  |  F3  |  F4  |  F5  |                   |  F6  |   F7  |   F8  |  F9  |  F10  |  F11  |
+// |     |     |     |      |      |      |                   |      |       |       |      |       |  F12  |
+// |     |     |     |      |      |      |                   |      |       |       |      |       |       |
+// |     |     |     |      |      |      |        |  |       |      |       |       |      |       |       |
+//             |     |      |      |      |        |  |       |------|       |       |      |
+            bindings = <
+&trans &kp F1 &kp F2 &kp F3 &kp F4 &kp F5                 &kp F6 &kp F7 &kp F8 &kp F9 &kp F10 &kp F11
+&trans &trans &trans &trans &trans &trans                 &trans &trans &trans &trans &trans  &kp F12
+&trans &trans &trans &trans &trans &trans                 &trans &trans &trans &trans &trans  &trans
+&trans &trans &trans &trans &trans &trans &trans  &trans  &trans &trans &trans &trans &trans  &trans
+              &trans &trans &trans &trans &trans  &trans  &trans &trans &trans &trans
             >;
 
             sensor-bindings = <&inc_dec_kp GAME_2 GAME_3 &inc_dec_cp M_VOLU M_VOLD>;
