@@ -68,6 +68,7 @@
             compatible = "zmk,behavior-macro";
             wait-ms = <0>;
             tap-ms = <0>;
+            #binding-cells = <0>;
             bindings
                 = <&macro_tap &kp DEFAULT_LAYER>
                 , <&macro_tap &tog 0>
@@ -79,6 +80,7 @@
             compatible = "zmk,behavior-macro";
             wait-ms = <0>;
             tap-ms = <0>;
+            #binding-cells = <0>;
             bindings
                 = <&macro_tap &kp GAME_LAYER>
                 , <&macro_tap &tog 3>
@@ -90,6 +92,7 @@
             compatible = "zmk,behavior-macro";
             wait-ms = <0>;
             tap-ms = <0>;
+            #binding-cells = <0>;
             bindings
                 = <&macro_tap &kp MAC_LAYER>
                 , <&macro_tap &tog 5>
