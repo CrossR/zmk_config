@@ -39,9 +39,20 @@
 #define BT4 &bt BT_SEL 3
 #define BT5 &bt BT_SEL 4
 
+// Layer swap macros
+// To account for not having a screen, have a tiny system tray application
+// running the shows the current layer. Using HID or similar would be better,
+// but for now, just report layer changes using (hopefully) unique button presses.
+//
+// Current layer here is more "current base layer" not the actual current layer.
+#define DEFAULT_LAYER LS(LC(LA(LG(N1))))
+#define GAME_LAYER LS(LC(LA(LG(N2))))
+#define MAC_LAYER LS(LC(LA(LG(N3))))
+
 // TODO: Encoder push missing.
 // TODO: Mouse HID for wheel events.
 
+// Set encoder resolutions
 &left_encoder {
     resolution = <2>;
 };
@@ -51,18 +62,55 @@
 };
 
 / {
+    macros {
+        layer_default: layer_default {
+            label = "ZM_layer_default";
+            compatible = "zmk,behavior-macro";
+            wait-ms = <0>;
+            tap-ms = <0>;
+            bindings
+                = <&macro_tap &kp DEFAULT_LAYER>
+                , <&macro_tap &tog 0>
+                ;
+        };
+
+        layer_game: layer_game {
+            label = "ZM_layer_game";
+            compatible = "zmk,behavior-macro";
+            wait-ms = <0>;
+            tap-ms = <0>;
+            bindings
+                = <&macro_tap &kp GAME_LAYER>
+                , <&macro_tap &tog 3>
+                ;
+        };
+
+        layer_mac: layer_mac {
+            label = "ZM_layer_mac";
+            compatible = "zmk,behavior-macro";
+            wait-ms = <0>;
+            tap-ms = <0>;
+            bindings
+                = <&macro_tap &kp MAC_LAYER>
+                , <&macro_tap &tog 5>
+                ;
+        };
+    };
+};
+
+/ {
     keymap {
         compatible = "zmk,keymap";
 
         default_layer {
 // ------------------------------------------------------------------------------------------------------------
-// |  ESC  |  1   |  2  |  3   |  4   |   5    |                  |    6   |  7 |  8  |  9  |   0  |       |
+// |  ESC  |  1   |  2  |  3   |  4   |   5    |                  |    6   |  7 |  8  |  9  |   0  |   L³  |
 // |  TAB  |  Q   |  W  |  E   |  R   |   T    |                  |    Y   |  U |  I  |  O  |   P  |   \   |
 // | ⌃     | A/L¹ |  S  |  D   |  F   |   G    |                  |    H   |  J |  K  |  L  | ;/L² |   '   |
 // | ( / ⇧ |  Z   |  X  |  C   |  V   |   B    |       |  | MUTE  |    N   |  M |  ,  |  .  |   /  | ) / ⇧ |
 //                | ALT | GUI  |  [   | DEL/L¹ | SPACE |  | BKSPC | RET/L² |  ] | ALT | GUI |
             bindings = <
-&kp ESC  &kp NUM_1 &kp NUM_2 &kp NUM_3 &kp NUM_4 &kp NUM_5                  &kp NUM_6 &kp NUM_7 &kp NUM_8 &kp NUM_9 &kp NUM_0 &tog 3
+&kp ESC  &kp NUM_1 &kp NUM_2 &kp NUM_3 &kp NUM_4 &kp NUM_5                  &kp NUM_6 &kp NUM_7 &kp NUM_8 &kp NUM_9 &kp NUM_0 &layer_game
 &kp TAB  &kp Q     &kp W     &kp E     &kp R     &kp T                      &kp Y     &kp U     &kp I     &kp O     &kp P     &kp 0x64
 &kp LCTL A_L1      &kp S     &kp D     &kp F     &kp G                      &kp H     &kp J     &kp K     &kp L     SCLN_L2   &kp QUOT
 SPCCDT_L &kp Z     &kp X     &kp C     &kp V     &kp B  &none    &cp M_MUTE &kp N     &kp M     &kp CMMA  &kp DOT   &kp FSLH  SPCCDT_R
@@ -92,7 +140,7 @@ SPCCDT_L &kp Z     &kp X     &kp C     &kp V     &kp B  &none    &cp M_MUTE &kp 
 
         raise_layer {
 // ------------------------------------------------------------------------------------------------------------
-// | CLR | BT1  | BT2  | BT3   | BT4   | BT5  |                |      |      |       |      |       |  L³   |
+// | CLR | BT1  | BT2  | BT3   | BT4   | BT5  |                |      |      |       |      |       |       |
 // |     |      |  ^   |       |       |      |                |      |      |       |      |       |       |
 // |     |  <   |  V   |  >    |   [   |      |                |  #   |  ]   |       |      |-------|       |
 // |     | PREV | PLAY | NEXT  |       |      |      |  |      |      |  ~   |       |      |       |       |
@@ -116,7 +164,7 @@ BTCLR  BT1      BT2      BT3      BT4      BT5                      &trans   &tr
 // | ⇧   |  Z  |  X  |  C   |  V   |  B   |  Key3  |  |       |  N   |  M    |  ,    |  .   |   /   |   ⇧   |
 //             | ALT |  RET |  I   |  M   |  SPACE |  | BKSPC | RET  |  ]    | ALT   | GUI  |
             bindings = <
-&kp ESC  &kp NUM_1 &kp NUM_2 &kp NUM_3 &kp NUM_4 &kp NUM_5                  &kp NUM_6 &kp NUM_7 &kp NUM_8 &kp NUM_9 &kp NUM_0 &tog 3
+&kp ESC  &kp NUM_1 &kp NUM_2 &kp NUM_3 &kp NUM_4 &kp NUM_5                  &kp NUM_6 &kp NUM_7 &kp NUM_8 &kp NUM_9 &kp NUM_0 &layer_default
 &kp TAB  &kp Q     &kp W     &kp E     &kp R     &kp T                      &kp Y     &kp U     &kp I     &kp O     &kp P     &kp 0x64
 &kp LCTL &kp A     &kp S     &kp D     &kp F     &kp G                      &kp H     &kp J     &kp K     &kp L     &kp SCLN  &kp QUOT
 &kp LSFT &kp Z     &kp X     &kp C     &kp V     &kp B  &kp GAME_1 &none    &kp N     &kp M     &kp CMMA  &kp DOT   &kp FSLH  &kp RSFT
