@@ -50,6 +50,9 @@
 #define GAME_LAYER LS(LC(LA(LG(N2))))
 #define MAC_LAYER LS(LC(LA(LG(N3))))
 
+#define INFO_BINDING LS(LC(LA(LG(N0))))
+#define TOGGLE_BINDING LS(LC(LA(LG(N9))))
+
 // TODO: Encoder push missing.
 // TODO: Mouse HID for wheel events.
 
@@ -111,6 +114,19 @@
                 , <&macro_tap &tog 5>
                 ;
         };
+
+        toggle_bt_usb: toggle_bt_usb {
+            label = "ZM_toggle_bt_usb";
+            compatible = "zmk,behavior-macro";
+            wait-ms = <0>;
+            tap-ms = <0>;
+            #binding-cells = <0>;
+            bindings
+                = <&macro_tap &kp TOGGLE_BINDING>
+                , <&macro_tap &out OUT_TOG>
+                , <&macro_tap &kp TOGGLE_BINDING>
+                ;
+        };
     };
 };
 
@@ -162,7 +178,7 @@ SPCCDT_L &kp Z     &kp X     &kp C     &kp V     &kp B  &none    &cp M_MUTE &kp 
 // |     | PREV | PLAY | NEXT  |       |      |      |  |      |      |  ~   |       |      |       |       |
 //              |      |       |       |  `   |      |  |      |------|      |       |      |
             bindings = <
-BTCLR  BT1      BT2      BT3      BT4      BT5                      &trans   &trans     &trans  &trans &trans TOG_OUT
+BTCLR  BT1      BT2      BT3      BT4      BT5                      &trans   &trans     &trans  &trans &trans &toggle_bt_usb
 &trans &trans   &kp UARW &trans   &trans   &trans                   &trans   &trans     &trans  &trans &trans &trans
 &trans &kp LARW &kp DARW &kp RARW &kp LBKT &trans                   &kp 0x32 &kp RBKT   &trans  &trans &trans &trans
 &trans PREVI    PLAY     NEXT     &trans   &trans   &trans  &trans  &trans   &kp TILDE2 &trans  &trans &trans &trans
