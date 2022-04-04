@@ -1,6 +1,7 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
+#include <dt-bindings/zmk/outputs.h>
 
 // Shifted key codes for UK keyboard layout
 #define DQUOT &kp LS(NUM_2)
@@ -38,6 +39,7 @@
 #define BT3 &bt BT_SEL 2
 #define BT4 &bt BT_SEL 3
 #define BT5 &bt BT_SEL 4
+#define TOG_OUT &out OUT_TOG
 
 // Layer swap macros
 // To account for not having a screen, have a tiny system tray application
@@ -154,13 +156,13 @@ SPCCDT_L &kp Z     &kp X     &kp C     &kp V     &kp B  &none    &cp M_MUTE &kp 
 
         raise_layer {
 // ------------------------------------------------------------------------------------------------------------
-// | CLR | BT1  | BT2  | BT3   | BT4   | BT5  |                |      |      |       |      |       |       |
+// | CLR | BT1  | BT2  | BT3   | BT4   | BT5  |                |      |      |       |      |       | TOGG  |
 // |     |      |  ^   |       |       |      |                |      |      |       |      |       |       |
 // |     |  <   |  V   |  >    |   [   |      |                |  #   |  ]   |       |      |-------|       |
 // |     | PREV | PLAY | NEXT  |       |      |      |  |      |      |  ~   |       |      |       |       |
 //              |      |       |       |  `   |      |  |      |------|      |       |      |
             bindings = <
-BTCLR  BT1      BT2      BT3      BT4      BT5                      &trans   &trans     &trans  &trans &trans &trans
+BTCLR  BT1      BT2      BT3      BT4      BT5                      &trans   &trans     &trans  &trans &trans TOG_OUT
 &trans &trans   &kp UARW &trans   &trans   &trans                   &trans   &trans     &trans  &trans &trans &trans
 &trans &kp LARW &kp DARW &kp RARW &kp LBKT &trans                   &kp 0x32 &kp RBKT   &trans  &trans &trans &trans
 &trans PREVI    PLAY     NEXT     &trans   &trans   &trans  &trans  &trans   &kp TILDE2 &trans  &trans &trans &trans
