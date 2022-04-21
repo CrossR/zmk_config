@@ -46,5 +46,7 @@ SWAP(to_mac, NOTIFY_MAC, MAC)
         ; \
 };
 
-OUTPUT_SWAP(toggle_bt_usb, &out OUT_TOG)
+OUTPUT_SWAP(toggle_bt_usb, TOG_OUT)
+OUTPUT_SWAP(to_pc, PC_BT)
+OUTPUT_SWAP(to_mac, MAC_BT)
 

@@ -26,15 +26,6 @@
 #define GAME_2 LS(LC(LA(N2)))
 #define GAME_3 LS(LC(LA(N3)))
 
-// Bluetooth Profile Management
-#define BTCLR &bt BT_CLR
-#define BT1 &bt BT_SEL 0
-#define BT2 &bt BT_SEL 1
-#define BT3 &bt BT_SEL 2
-#define BT4 &bt BT_SEL 3
-#define BT5 &bt BT_SEL 4
-#define TOG_OUT &out OUT_TOG
-
 // TODO: Encoder push missing.
 // TODO: Mouse HID for wheel events.
 
@@ -100,7 +91,7 @@ ______ ______    ______    ______    ______    ______   ______   ______ &kp DLLR
 // |     | PREV | PLAY | NEXT  |       |      |      |  |      |      |  ~   |       |      |       |       |
 //              |      |       |       |  `   |      |  |      |------|      |       |      |
             bindings = <
-BTCLR  BT1      BT2      BT3      BT4      BT5                      ______   ______     ______  ______ ______ &toggle_bt_usb
+BTCLR  &to_pc   &to_mac  PHONE_BT TAB_BT   BT5                      ______   ______     ______  ______ ______ &toggle_bt_usb
 ______ ______   &kp UARW ______   ______   ______                   ______   ______     ______  ______ ______ ______
 ______ &kp LARW &kp DARW &kp RARW &kp LBKT ______                   &kp 0x32 &kp RBKT   ______  ______ ______ ______
 ______ PREVI    PLAY     NEXT     ______   ______   ______  ______  ______   &kp TILDE2 ______  ______ ______ ______

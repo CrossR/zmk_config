@@ -12,8 +12,12 @@
 #define GAME_RAISE 4
 #define MAC 5
 
-// BT Profile numbers
-#define PC_BT 1
-#define MAC_BT 2
-#define PHONE_BT 3
-#define TABLET_BT 4
+// Bluetooth Profile Management
+#define BTCLR     &bt  BT_CLR
+#define PC_BT     &bt  BT_SEL 0
+#define MAC_BT    &bt  BT_SEL 1
+#define PHONE_BT  &bt  BT_SEL 2
+#define TAB_BT    &bt  BT_SEL 3
+#define BT5       &bt  BT_SEL 4
+#define TOG_OUT   &out OUT_TOG
+
