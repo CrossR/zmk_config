@@ -19,5 +19,8 @@
 #define PHONE_BT  &bt  BT_SEL 2
 #define TAB_BT    &bt  BT_SEL 3
 #define BT5       &bt  BT_SEL 4
+
 #define TOG_OUT   &out OUT_TOG
+#define TOG_BLE   &out OUT_BLE
+#define TOG_USB   &out OUT_USB
 

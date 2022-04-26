@@ -14,17 +14,14 @@
 #define TOGGLE_BINDING LS(LC(LA(LG(N9))))
 
 #define SWAP(NAME, NOTIFY_BIND, LAYER_ID) \
-    NAME: NAME { \
-    label = #NAME; \
-    compatible = "zmk,behavior-macro"; \
+    ZMK_MACRO(NAME, \
     wait-ms = <0>; \
     tap-ms = <0>; \
-    #binding-cells = <0>; \
     bindings \
         = <&macro_tap &kp NOTIFY_BIND> \
         , <&macro_tap &tog LAYER_ID> \
         ; \
-    };
+    )
 
 SWAP(from_game, NOTIFY_DEFAULT, GAME)
 SWAP(to_game, NOTIFY_GAME, GAME)
@@ -33,20 +30,17 @@ SWAP(from_mac, NOTIFY_DEFAULT, MAC)
 SWAP(to_mac, NOTIFY_MAC, MAC)
 
 #define OUTPUT_SWAP(NAME, OUTPUT_TOGGLE) \
-    NAME: NAME { \
-    label = "ZM_NAME"; \
-    compatible = "zmk,behavior-macro"; \
+    ZMK_MACRO(NAME, \
     wait-ms = <0>; \
     tap-ms = <0>; \
-    #binding-cells = <0>; \
     bindings \
         = <&macro_tap &kp TOGGLE_BINDING> \
         , <&macro_tap OUTPUT_TOGGLE> \
         , <&macro_tap &kp TOGGLE_BINDING> \
         ; \
-};
+    )
 
 OUTPUT_SWAP(toggle_bt_usb, TOG_OUT)
-OUTPUT_SWAP(to_pc, PC_BT)
-OUTPUT_SWAP(to_mac, MAC_BT)
+OUTPUT_SWAP(to_bt, TOG_BLE)
+OUTPUT_SWAP(to_usb, TOG_USB)
 
