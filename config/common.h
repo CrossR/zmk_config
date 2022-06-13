@@ -2,6 +2,7 @@
 
 // Convenient macros to make keymaps easier to read.
 #define XXXXX &none
+#define XXXXXX &none
 #define ______ &trans
 
 // Layer names
@@ -11,6 +12,7 @@
 #define GAME 3
 #define GAME_RAISE 4
 #define MAC 5
+#define DISABLED 6
 
 // Bluetooth Profile Management
 #define BTCLR     &bt  BT_CLR

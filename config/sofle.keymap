@@ -55,6 +55,24 @@
     macros {
         #include "macros.dtsi"
     };
+    
+    combos {
+        compatible = "zmk,combos";
+
+        combo_toggle_disabled {
+            timeout-ms = <50>;
+            key-positions = <0 1 10 11>;
+            layers = <BASE>;
+            bindings = <&to_disabled>;
+        };
+
+        combo_from_disabled{ 
+            timeout-ms = <50>;
+            key-positions = <0 1 10 11>;
+            layers = <DISABLED>;
+            bindings = <&from_disabled>;
+        };
+    };
 
     keymap {
         compatible = "zmk,keymap";
@@ -144,6 +162,42 @@ ______ ______ ______ ______ ______ ______                 ______ KP_1   KP_2   K
 ______ ______ ______ ______ ______ ______                 ______ KP_4   KP_5   KP_6   ______  ______
 ______ ______ ______ ______ ______ ______ ______  ______  ______ KP_7   KP_8   KP_9   ______  ______
               ______ ______ ______ ______ ______  ______  ______ ______ ______ KP_0  
+            >;
+
+            sensor-bindings = <&inc_dec_kp GAME_2 GAME_3 &inc_dec_cp M_VOLU M_VOLD>;
+        };
+        
+        mac_layer {
+// ------------------------------------------------------------------------------------------------------------
+// |  ESC  |  1   |  2  |  3   |  4   |   5    |                  |    6   |  7 |  8  |  9  |   0  |   L³  |
+// |  TAB  |  Q   |  W  |  E   |  R   |   T    |                  |    Y   |  U |  I  |  O  |   P  |   \   |
+// |  CMD  | A/L¹ |  S  |  D   |  F   |   G    |                  |    H   |  J |  K  |  L  | ;/L² |   '   |
+// | ( / ⇧ |  Z   |  X  |  C   |  V   |   B    |       |  | MUTE  |    N   |  M |  ,  |  .  |   /  | ) / ⇧ |
+//                | ALT | CTRL |  [   | DEL/L¹ | SPACE |  | BKSPC | RET/L² |  ] | ALT | GUI |
+            bindings = <
+&kp ESC  &kp NUM_1 &kp NUM_2 &kp NUM_3 &kp NUM_4 &kp NUM_5                  &kp NUM_6 &kp NUM_7 &kp NUM_8 &kp NUM_9 &kp NUM_0 &to_game
+&kp TAB  &kp Q     &kp W     &kp E     &kp R     &kp T                      &kp Y     &kp U     &kp I     &kp O     &kp P     &kp 0x64
+&kp LGUI A_L1      &kp S     &kp D     &kp F     &kp G                      &kp H     &kp J     &kp K     &kp L     SCLN_L2   &kp QUOT
+SPCCDT_L &kp Z     &kp X     &kp C     &kp V     &kp B  XXXXX    &cp M_MUTE &kp N     &kp M     &kp CMMA  &kp DOT   &kp FSLH  SPCCDT_R
+                   &kp LALT  &kp LCTL  &kp LBKT  DEL_L1 &kp SPC  &kp BKSP   RET_L2    &kp RBKT  &kp RALT  &kp RGUI
+            >;
+
+            sensor-bindings = <&inc_dec_kp PGDN PGUP &inc_dec_cp M_VOLU M_VOLD>;
+        };
+        
+        disabled_layer {
+// ------------------------------------------------------------------------------------------------------------
+// |     |     |     |      |      |      |                   |      |       |       |      |       |       |
+// |     |     |     |      |      |      |                   |      |       |       |      |       |       |
+// |     |     |     |      |      |      |                   |      |       |       |      |       |       |
+// |     |     |     |      |      |      |        |  |       |      |       |       |      |       |       |
+//             |     |      |      |      |        |  |       |------|       |       |      |
+            bindings = <
+XXXXXX XXXXXX XXXXXX XXXXXX XXXXXX XXXXXX                 XXXXXX XXXXXX XXXXXX XXXXXX XXXXXX  XXXXXX
+XXXXXX XXXXXX XXXXXX XXXXXX XXXXXX XXXXXX                 XXXXXX XXXXXX XXXXXX XXXXXX XXXXXX  XXXXXX
+XXXXXX XXXXXX XXXXXX XXXXXX XXXXXX XXXXXX                 XXXXXX XXXXXX XXXXXX XXXXXX XXXXXX  XXXXXX
+XXXXXX XXXXXX XXXXXX XXXXXX XXXXXX XXXXXX XXXXXX  XXXXXX  XXXXXX XXXXXX XXXXXX XXXXXX XXXXXX  XXXXXX
+              XXXXXX XXXXXX XXXXXX XXXXXX XXXXXX  XXXXXX  XXXXXX XXXXXX XXXXXX XXXXXX
             >;
 
             sensor-bindings = <&inc_dec_kp GAME_2 GAME_3 &inc_dec_cp M_VOLU M_VOLD>;
