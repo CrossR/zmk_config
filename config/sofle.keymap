@@ -55,24 +55,6 @@
     macros {
         #include "macros.dtsi"
     };
-    
-    combos {
-        compatible = "zmk,combos";
-
-        combo_to_disabled {
-            timeout-ms = <250>;
-            key-positions = <0 1 10 11>;
-            layers = <BASE>;
-            bindings = <&to_disabled>;
-        };
-
-        combo_from_disabled{ 
-            timeout-ms = <250>;
-            key-positions = <0 1 10 11>;
-            layers = <DISABLED>;
-            bindings = <&from_disabled>;
-        };
-    };
 
     keymap {
         compatible = "zmk,keymap";
