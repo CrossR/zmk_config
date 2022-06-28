@@ -88,7 +88,7 @@
 &kp ESC  &kp NUM_1 &kp NUM_2 &kp NUM_3 &kp NUM_4 &kp NUM_5                  &kp NUM_6 &kp NUM_7 &kp NUM_8 &kp NUM_9 &kp NUM_0 &to_game
 &kp TAB  &kp Q     &kp W     &kp E     &kp R     &kp T                      &kp Y     &kp U     &kp I     &kp O     &kp P     &kp 0x64
 &kp LCTL A_L1      &kp S     &kp D     &kp F     &kp G                      &kp H     &kp J     &kp K     &kp L     SCLN_L2   &kp QUOT
-SPCCDT_L &kp Z     &kp X     &kp C     &kp V     &kp B  &cp C_AC_DESKTOP_SHOW_ALL_WINDOWS    &cp M_MUTE &kp N     &kp M     &kp CMMA  &kp DOT   &kp FSLH  SPCCDT_R
+SPCCDT_L &kp Z     &kp X     &kp C     &kp V     &kp B  XXXXX    &cp M_MUTE &kp N     &kp M     &kp CMMA  &kp DOT   &kp FSLH  SPCCDT_R
                    &kp LALT  &kp LGUI  &kp LBKT  DEL_L1 &kp SPC  &kp BKSP   RET_L2    &kp RBKT  &kp RALT  &kp RGUI
             >;
 
