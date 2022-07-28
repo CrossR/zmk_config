@@ -15,7 +15,7 @@
 #define SCLN_L2 &lt 2 SCLN
 #define RET_L4  &lt 4 RET
 #define RET_L6  &lt 6 RET
-#define SCLN_L6 &lt 3 SCLN
+#define SCLN_L6 &lt 6 SCLN
 
 // Short numpad keys
 #define KP_1 &kp KP_N1
