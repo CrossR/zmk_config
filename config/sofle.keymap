@@ -14,6 +14,8 @@
 #define A_L1    &lt 1 A
 #define SCLN_L2 &lt 2 SCLN
 #define RET_L4  &lt 4 RET
+#define RET_L6  &lt 6 RET
+#define SCLN_L6 &lt 3 SCLN
 
 // Short numpad keys
 #define KP_1 &kp KP_N1
@@ -55,7 +57,7 @@
     macros {
         #include "macros.dtsi"
     };
-    
+
     combos {
         compatible = "zmk,combos";
 
@@ -66,7 +68,7 @@
             bindings = <&to_disabled>;
         };
 
-        combo_from_disabled { 
+        combo_from_disabled {
             timeout-ms = <500>;
             key-positions = <0 11 50 59>;
             layers = <DISABLED>;
@@ -161,12 +163,12 @@ ______ &kp F1 &kp F2 &kp F3 &kp F4 &kp F5                 &kp F6 &kp F7 &kp F8 &
 ______ ______ ______ ______ ______ ______                 ______ KP_1   KP_2   KP_3   ______  &kp F12
 ______ ______ ______ ______ ______ ______                 ______ KP_4   KP_5   KP_6   ______  ______
 ______ ______ ______ ______ ______ ______ ______  ______  ______ KP_7   KP_8   KP_9   ______  ______
-              ______ ______ ______ ______ ______  ______  ______ ______ ______ KP_0  
+              ______ ______ ______ ______ ______  ______  ______ ______ ______ KP_0
             >;
 
             sensor-bindings = <&inc_dec_kp GAME_2 GAME_3 &inc_dec_cp M_VOLU M_VOLD>;
         };
-        
+
         mac_layer {
 // ------------------------------------------------------------------------------------------------------------
 // |  ESC  |  1   |  2  |  3   |  4   |   5    |                  |    6   |  7 |  8  |  9  |   0  |   L³  |
@@ -177,14 +179,32 @@ ______ ______ ______ ______ ______ ______ ______  ______  ______ KP_7   KP_8   K
             bindings = <
 &kp ESC  &kp NUM_1 &kp NUM_2 &kp NUM_3 &kp NUM_4 &kp NUM_5                  &kp NUM_6 &kp NUM_7 &kp NUM_8 &kp NUM_9 &kp NUM_0 &to_game
 &kp TAB  &kp Q     &kp W     &kp E     &kp R     &kp T                      &kp Y     &kp U     &kp I     &kp O     &kp P     &kp 0x64
-&kp LGUI A_L1      &kp S     &kp D     &kp F     &kp G                      &kp H     &kp J     &kp K     &kp L     SCLN_L2   &kp QUOT
+&kp LGUI A_L1      &kp S     &kp D     &kp F     &kp G                      &kp H     &kp J     &kp K     &kp L     SCLN_L6   &kp QUOT
 SPCCDT_L &kp Z     &kp X     &kp C     &kp V     &kp B  XXXXX    &cp M_MUTE &kp N     &kp M     &kp CMMA  &kp DOT   &kp FSLH  SPCCDT_R
-                   &kp LALT  &kp LCTL  &kp LBKT  DEL_L1 &kp SPC  &kp BKSP   RET_L2    &kp RBKT  &kp RALT  &kp RGUI
+                   &kp LALT  &kp LCTL  &kp LBKT  DEL_L1 &kp SPC  &kp BKSP   RET_L6    &kp RBKT  &kp RALT  &kp RGUI
             >;
 
             sensor-bindings = <&inc_dec_kp PGDN PGUP &inc_dec_cp M_VOLU M_VOLD>;
         };
-        
+
+        mac_alt_layer {
+// ------------------------------------------------------------------------------------------------------------
+// | CLR | BT1  | BT2  | BT3   | BT4   | BT5  |                |      |      |       |      |       | TOGG  |
+// |     |      |  ^   |       |       |      |                |      |      |       |      |       |       |
+// |     |  <   |  V   |  >    |   [   |      |                |  #   |  ]   |       |      |-------|       |
+// |     | PREV | PLAY | NEXT  |       |      |      |  |      |      |  ~   |       |      |       |       |
+//              |      |       |       |  `   |      |  |      |------|      |       |      |
+            bindings = <
+BTCLR  PC_BT    MAC_BT   PHONE_BT TAB_BT   BT5                      ______   ______     ______  ______ ______ &toggle_bt_usb
+______ ______   &kp UARW ______   ______   ______                   ______   ______     ______  ______ ______ &to_usb
+______ &kp LARW &kp DARW &kp RARW &kp LBKT ______                   &kp 0x32 &kp RBKT   ______  ______ ______ ______
+______ PREVI    PLAY     NEXT     ______   ______   ______  ______  ______   &kp TILDE  ______  ______ ______ &to_bt
+                ______   ______   ______   &kp GRAV ______  ______  ______   ______     ______  ______
+            >;
+
+            sensor-bindings = <&inc_dec_kp PGDN PGUP &inc_dec_cp M_VOLU M_VOLD>;
+        };
+
         disabled_layer {
 // ------------------------------------------------------------------------------------------------------------
 // |     |     |     |      |      |      |                   |      |       |       |      |       |       |

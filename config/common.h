@@ -12,7 +12,8 @@
 #define GAME 3
 #define GAME_RAISE 4
 #define MAC 5
-#define DISABLED 6
+#define MAC_ALT 6
+#define DISABLED 7
 
 // Bluetooth Profile Management
 #define BTCLR     &bt  BT_CLR
