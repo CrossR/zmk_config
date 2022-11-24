@@ -1,5 +1,4 @@
-
-/* Macros to signal layer swaps */
+// Macros for keyboards.
 
 // Layer swap macros
 // To account for not having a screen, have a tiny system tray application
@@ -33,6 +32,12 @@ SWAP(t_mac, NOTIFY_MAC, MAC)
 SWAP(from_disabled, NOTIFY_DEFAULT, DISABLED)
 SWAP(to_disabled, NOTIFY_DISABLED, DISABLED)
 
+// Similarly to layer swap macros, have macros to notify the output mode
+// has changed (USB or BLE), then perform the actual change.
+// There is two notifications sent here, such that the both the first and
+// second device (i.e. PC then Mac) both get the notification. This means
+// the tray icon will swap to the correct mode on both devices.
+
 #define OUTPUT_SWAP(NAME, OUTPUT_TOGGLE) \
     ZMK_MACRO(NAME, \
     wait-ms = <0>; \
@@ -47,4 +52,3 @@ SWAP(to_disabled, NOTIFY_DISABLED, DISABLED)
 OUTPUT_SWAP(toggle_bt_usb, TOG_OUT)
 OUTPUT_SWAP(to_bt, TOG_BLE)
 OUTPUT_SWAP(to_usb, TOG_USB)
-
