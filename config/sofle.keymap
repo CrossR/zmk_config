@@ -15,7 +15,7 @@
 #define RET_L2  &lt LOWER RET
 #define SCLN_L2 &lt LOWER SCLN
 
-#define RET_L4  &lt GAME_RAISE RET
+#define RET_L4  &lt GAME_ALT RET
 
 #define DEL_L6  &lt MAC_LOWER DEL
 #define A_L6    &lt MAC_LOWER A
@@ -219,7 +219,7 @@ ______ ______    ______    ______    ______    ______   ______   ______  &kp DLL
 // |     | PREV | PLAY | NEXT  |       |      |      |  |      |      |  ~   |       |      |       | BT    |
 //              |      |       |       |  `   |      |  |      |------|      |       |      |
             bindings = <
-BTCLR  &pc_bt   &mac_bt  PHONE_BT TAB_BT   BT5                      ______   ______     ______  ______ &f_mac &toggle_bt_usb
+BTCLR  &bt_pc   &bt_mac  PHONE_BT TAB_BT   BT5                      ______   ______     ______  ______ &f_mac &toggle_bt_usb
 ______ ______   &kp UARW ______   ______   ______                   ______   ______     ______  ______ ______ &to_usb
 ______ &kp LARW &kp DARW &kp RARW &kp LBKT ______                   &kp 0x32 &kp RBKT   ______  ______ ______ ______
 ______ PREVI    PLAY     NEXT     ______   ______   ______  ______  ______   &kp TILDE  ______  ______ ______ &to_bt
