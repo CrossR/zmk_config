@@ -10,10 +10,11 @@
 #define RAISE 1
 #define LOWER 2
 #define GAME 3
-#define GAME_RAISE 4
+#define GAME_ALT 4
 #define MAC 5
-#define MAC_ALT 6
-#define DISABLED 7
+#define MAC_RAISE 6
+#define MAC_LOWER 7
+#define DISABLED 8
 
 // Bluetooth Profile Management
 #define BTCLR     &bt  BT_CLR
