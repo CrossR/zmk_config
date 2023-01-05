@@ -40,7 +40,7 @@ SWAP(to_disabled, NOTIFY_DISABLED, DISABLED)
 
 #define OUTPUT_SWAP(NAME, OUTPUT_TOGGLE) \
     ZMK_MACRO(NAME, \
-    wait-ms = <0>; \
+    wait-ms = <100>; \
     tap-ms = <0>; \
     bindings \
         = <&macro_tap &kp TOGGLE_BINDING> \
