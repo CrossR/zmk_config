@@ -17,11 +17,11 @@
 
 #define RET_L4  &lt GAME_ALT RET
 
-#define DEL_L6  &lt MAC_LOWER DEL
-#define A_L6    &lt MAC_LOWER A
+#define DEL_L6  &lt MAC_RAISE DEL
+#define A_L6    &lt MAC_RAISE A
 
-#define RET_L7  &lt MAC_RAISE RET
-#define SCLN_L7 &lt MAC_RAISE SCLN
+#define RET_L7  &lt MAC_LOWER RET
+#define SCLN_L7 &lt MAC_LOWER SCLN
 
 // Short numpad keys
 #define KP_1 &kp KP_N1
