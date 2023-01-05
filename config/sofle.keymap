@@ -80,6 +80,13 @@
             layers = <DISABLED>;
             bindings = <&from_disabled>;
         };
+
+        cmd_for_mac {
+            timeout-ms = <500>;
+            key-positions = <24 36>;
+            layers = <MAC MAC_RAISE MAC_LOWER>;
+            bindings = <&kp LGUI>;
+        };
     };
 
     keymap {
@@ -185,9 +192,9 @@ ______ ______ ______ ______ ______ ______ ______  ______  ______ KP_7   KP_8   K
             bindings = <
 &kp ESC  &kp NUM_1 &kp NUM_2 &kp NUM_3 &kp NUM_4 &kp NUM_5                  &kp NUM_6 &kp NUM_7 &kp NUM_8 &kp NUM_9 &kp NUM_0 &f_mac
 &kp TAB  &kp Q     &kp W     &kp E     &kp R     &kp T                      &kp Y     &kp U     &kp I     &kp O     &kp P     &kp 0x64
-&kp LGUI A_L6      &kp S     &kp D     &kp F     &kp G                      &kp H     &kp J     &kp K     &kp L     SCLN_L7   &kp QUOT
+&kp LCTL A_L6      &kp S     &kp D     &kp F     &kp G                      &kp H     &kp J     &kp K     &kp L     SCLN_L7   &kp QUOT
 SPCCDT_L &kp Z     &kp X     &kp C     &kp V     &kp B  XXXXX    &cp M_MUTE &kp N     &kp M     &kp CMMA  &kp DOT   &kp FSLH  SPCCDT_R
-                   &kp LALT  &kp LCTL  &kp LBKT  DEL_L6 &kp SPC  &kp BKSP   RET_L7    &kp RBKT  &kp RALT  &kp RGUI
+                   &kp LALT  &kp LGUI  &kp LBKT  DEL_L6 &kp SPC  &kp BKSP   RET_L7    &kp RBKT  &kp RALT  &kp RGUI
             >;
 
             sensor-bindings = <&inc_dec_kp PGDN PGUP &inc_dec_cp M_VOLU M_VOLD>;
