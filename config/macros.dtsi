@@ -8,7 +8,6 @@
 #define NOTIFY_DEFAULT LS(LC(LA(LG(N1))))
 #define NOTIFY_GAME LS(LC(LA(LG(N2))))
 #define NOTIFY_MAC LS(LC(LA(LG(N3))))
-#define NOTIFY_DISABLED LS(LC(LA(LG(N4))))
 
 #define INFO_BINDING LS(LC(LA(LG(N0))))
 #define TOGGLE_BINDING LS(LC(LA(LG(N9))))
@@ -28,9 +27,6 @@ SWAP(to_game, NOTIFY_GAME, GAME)
 
 SWAP(f_mac, NOTIFY_DEFAULT, MAC)
 SWAP(t_mac, NOTIFY_MAC, MAC)
-
-SWAP(from_disabled, NOTIFY_DEFAULT, DISABLED)
-SWAP(to_disabled, NOTIFY_DISABLED, DISABLED)
 
 // Similarly to layer swap macros, have macros to notify the output mode
 // has changed (USB or BLE), then perform the actual change.
