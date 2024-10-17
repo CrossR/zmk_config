@@ -14,7 +14,6 @@
 #define MAC 5
 #define MAC_RAISE 6
 #define MAC_LOWER 7
-#define DISABLED 8
 
 // Bluetooth Profile Management
 #define BTCLR     &bt  BT_CLR
