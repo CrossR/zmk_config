@@ -46,6 +46,9 @@
 #define GAME_2 LS(LC(LA(N2)))
 #define GAME_3 LS(LC(LA(N3)))
 
+// ZMK Studio
+#define UNLCK &studio_unlock
+
 // TODO: Encoder push missing.
 // TODO: Mouse HID for wheel events.
 
@@ -111,13 +114,13 @@ SPCCDT_L &kp Z     &kp X     &kp C     &kp V     &kp B  XXXXX    &kp M_MUTE &kp 
         raise_layer {
             display-name = "Raise";
 // ------------------------------------------------------------------------------------------------------------
-// |       |  F1 |  F2 |  F3  |  F4  |  F5  |                   |  F6  |  F7   |  F8   |  F9  |  F10  |  F11  |
+// | Unlck |  F1 |  F2 |  F3  |  F4  |  F5  |                   |  F6  |  F7   |  F8   |  F9  |  F10  |  F11  |
 // |       |  1  |  2  |  3   |  4   |  5   |                   |  6   |  7    |  8    |  9   |  0    |  F12  |
 // |       |-----|     |  %   |  =   |  +   |                   |  -   |  _    |  ^    |      |       |       |
 // |       |     |     |      |      |      |        |  |       |  $   |  *    |  &    |      |       |       |
 //               |     |      |      |------|        |  |       |      |       |       |      |
             bindings = <
-______ &kp F1    &kp F2    &kp F3    &kp F4    &kp F5                    &kp F6    &kp F7    &kp F8    &kp F9    &kp F10   &kp F11
+UNLCK  &kp F1    &kp F2    &kp F3    &kp F4    &kp F5                    &kp F6    &kp F7    &kp F8    &kp F9    &kp F10   &kp F11
 ______ &kp NUM_1 &kp NUM_2 &kp NUM_3 &kp NUM_4 &kp NUM_5                 &kp NUM_6 &kp NUM_7 &kp NUM_8 &kp NUM_9 &kp NUM_0 &kp F12
 ______ ______    ______    &kp PRCNT &kp EQL   &kp PLUS                  &kp MINUS &kp UNDER &kp CARET ______    ______    ______
 ______ ______    ______    ______    ______    ______   ______   ______  &kp DLLR  &kp ASTRK &kp AMPS  ______    ______    ______
