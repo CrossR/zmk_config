@@ -25,4 +25,4 @@ include:
   - board: nice_nano
     shield: settings_reset
   - board: seeeduino_xiao_ble
-    shield: sofle_left_dongle prospector_adapter
+    shield: sofle_dongle prospector_adapter
