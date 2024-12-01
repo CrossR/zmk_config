@@ -1,7 +1,7 @@
 / {
     chosen {
         zmk,kscan = &mock_kscan;
-        zmk,physical-layout = &default_layout;
+        zmk,physical-layout = &josefadamcik_sofle_layout;
     };
 
     mock_kscan: mock_kscan_0 {
@@ -27,6 +27,7 @@ RC(3,0) RC(3,1) RC(3,2) RC(3,3) RC(3,4) RC(3,5) RC(4,5) RC(4,6) RC(3,6) RC(3,7) 
     josefadamcik_sofle_layout: josefadamcik_sofle_layout {
         compatible = "zmk,physical-layout";
         display-name = "Sofle";
+        transform = <&default_transform>;
 
         keys
             = <&key_physical_attrs 100 100    0   37       0     0     0>
