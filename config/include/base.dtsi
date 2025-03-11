@@ -3,7 +3,7 @@
 / {
 
     #include "combos.dtsi"
-    #include "behaviors.dtsi"
+    #include "behaviours.dtsi"
 
     keymap {
         compatible = "zmk,keymap";
@@ -57,7 +57,7 @@ LAYER(GAMING_LAYER, "Gaming",
     &kp LSFT,   &kp Z,       &kp X,       &kp C,       &kp V,       &kp B,                               &kp N,       &kp M,       &kp CMMA,    &kp DOT,     &kp FSLH,    SPCCDT_R,
                              &kp LALT,    &kp RET,     &kp M,       &kp LALT,   &kp SPC,    &kp BKSP,    RET_L4,      &kp RBKT,    &kp RALT,    &kp RGUI,
     // Encoder bindings
-    &scroll_encoder, XXXXX,
+    &game_encoder, &kp GAME_1,
     &volume_encoder, &kp M_MUTE,
 
     // Four way encoder bindings, up, down, left, right, press
@@ -71,7 +71,7 @@ LAYER(GAMING_ALT_LAYER, "Gaming Alt",
     ______,     ______,      ______,      ______,      ______,      ______,                           ______,      KP_7,        KP_8,        KP_9,        ______,      ______,
                              ______,      ______,      ______,      &kp DEL,    ______,    ______,    ______,      ______,      ______,      KP_0,
     // Encoder bindings
-    &scroll_encoder, XXXXX,
+    &game_encoder, &kp GAME_1,
     &volume_encoder, &kp M_MUTE,
 
     // Four way encoder bindings, up, down, left, right, press
