@@ -27,11 +27,11 @@ LAYER(Base,
     SPCCDT_L,   &kp Z,       &kp X,       &kp C,       &kp V,       &kp B,                             &kp N,       &kp M,       &kp CMMA,    &kp DOT,     &kp FSLH,    SPCCDT_R,
                              &kp LALT,    &kp LGUI,    &kp LBKT,    DEL_L1,    &kp SPC,     &kp BKSP,  RET_L2,      &kp RBKT,    &kp RALT,    &kp RGUI,
     // Encoder bindings, increment, decrement, and press
-    PGDN, PGUP, XXXXX,
-    C_VOL_UP, C_VOL_DN, M_MUTE,
+    A, S, D,
+    A, S, D,
 
     // Four way encoder bindings, up, down, left, right, press
-    UP_ARROW, DOWN_ARROW, LEFT_ARROW, RIGHT_ARROW, ENTER
+    &kp A, &kp S, &kp D, &kp F, &kp G
 )
 
 // LAYER(Raise,
