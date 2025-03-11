@@ -27,8 +27,8 @@ LAYER(BASE_LAYER, "Base",
     &kp A,   &kp Z,       &kp X,   &kp C,   &kp V,   &kp B,                     &kp N,   &kp M,   &kp C,   &kp D,   &kp F,   &kp A,
                           &kp L,   &kp A,   &kp A,   &kp A,  &kp S,     &kp B,  &kp  A,  &kp R,   &kp R,   &kp R,
     // Encoder bindings, increment, decrement, and press
-    A, S, D,
-    A, S, D,
+    A, S, &kp D,
+    A, S, &kp D,
 
     // Four way encoder bindings, up, down, left, right, press
     &kp A, &kp S, &kp D, &kp F, &kp G
