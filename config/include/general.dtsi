@@ -9,3 +9,12 @@
 #include <zephyr/dt-bindings/input/input-event-codes.h>
 
 #include "common.dtsi"
+
+// Set encoder resolutions
+&left_encoder {
+    resolution = <2>;
+};
+
+&soft_off {
+    hold-time-ms = <2000>;
+};

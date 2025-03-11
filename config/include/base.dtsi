@@ -1,18 +1,5 @@
 #include "general.dtsi"
 
-// Set encoder resolutions
-&left_encoder {
-    resolution = <2>;
-};
-
-&right_encoder {
-    resolution = <2>;
-};
-
-&soft_off {
-    hold-time-ms = <2000>;
-};
-
 / {
 
     combos {
@@ -71,7 +58,7 @@ LAYER(GAMING_LAYER, "Gaming",
     &kp LSFT,   &kp Z,       &kp X,       &kp C,       &kp V,       &kp B,                               &kp N,       &kp M,       &kp CMMA,    &kp DOT,     &kp FSLH,    SPCCDT_R,
                              &kp LALT,    &kp RET,     &kp M,       &kp LALT,   &kp SPC,    &kp BKSP,    RET_L4,      &kp RBKT,    &kp RALT,    &kp RGUI,
     // Encoder bindings
-    GAME_2, GAME_3, GAME_1,
+    GAME_2, GAME_3, &kp GAME_1,
     C_VOL_UP, C_VOL_DN, &kp M_MUTE,
 
     // Four way encoder bindings, up, down, left, right, press
@@ -85,7 +72,7 @@ LAYER(GAMING_ALT_LAYER, "Gaming Alt",
     ______,     ______,      ______,      ______,      ______,      ______,                           ______,      KP_7,        KP_8,        KP_9,        ______,      ______,
                              ______,      ______,      ______,      &kp DEL,    ______,    ______,    ______,      ______,      ______,      KP_0,
     // Encoder bindings
-    GAME_2, GAME_3, GAME_1,
+    GAME_2, GAME_3, &kp GAME_1,
     C_VOL_UP, C_VOL_DN, &kp M_MUTE,
 
     // Four way encoder bindings, up, down, left, right, press

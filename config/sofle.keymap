@@ -31,3 +31,4 @@ LAYER { \
 };
 
 #include "include/base.dtsi"
+#include "include/optional_sofle.dtsi"
