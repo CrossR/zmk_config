@@ -28,6 +28,7 @@ LAYER { \
         EN1_BTN K50 K51 K52 K53 K54      F_PR      K55 K56 K57 K58 K59 \
     >; \
     sensor-bindings = <&inc_dec_kp EN1_INC EN1_DEC>; \
+    display-name = NAME; \
 };
 
 #include "include/base.dtsi"
