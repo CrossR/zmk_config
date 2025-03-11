@@ -1,140 +1,34 @@
-// Set encoder resolutions
-&left_encoder {
-    resolution = <2>;
+/*                KEY POSITIONS
+
+  ╭────────────────────────╮              ╭────────────────────────╮
+  │ 0   1   2   3   4   5  │              │ 6   7   8   9   10  11 │
+  │ 12  13  14  15  16  17 │              │ 18  19  20  21  22  23 │
+  │ 24  25  26  27  28  29 ╰──╮        ╭──╯ 30  31  32  33  34  35 │
+  │ 36  37  38  39  40  41 42 │        │ 43 44  45  46  47  48  49 │
+  ╰─────╮  50  51  52  53  54 │        │ 55  56  57  58  59  ╭─────╯
+        ╰─────────────────────╯        ╰─────────────────────╯ */
+
+#define LAYER(NODE, \
+K00, K01, K02, K03, K04, K05,           K06, K07, K08, K09, K10, K11, \
+K12, K13, K14, K15, K16, K17,           K18, K19, K20, K21, K22, K23, \
+K24, K25, K26, K27, K28, K29,           K30, K31, K32, K33, K34, K35, \
+K36, K37, K38, K39, K40, K41,           K44, K45, K46, K47, K48, K49, \
+          K50, K51, K52, K53, K54, K55, K56, K57, K58, K59, \
+          EN1_INC, EN1_DEC, EN1_BTN, \
+          EN2_INC, EN2_DEC, EN2_BTN, \
+          FOUR_WAY_UP, FOUR_WAY_DOWN, FOUR_WAY_LEFT, FOUR_WAY_RIGHT, FOUR_WAY_BTN \
+
+) \
+NODE { \
+    display-name = "ZMK_MACRO_STRINGIFY(NODE)"; \
+    bindings = < \
+        K00 K01 K02 K03 K04 K05                   K06 K07 K08 K09 K10 K11 \
+        K12 K13 K14 K15 K16 K17                   K18 K19 K20 K21 K22 K23 \
+        K24 K25 K26 K27 K28 K29                   K30 K31 K32 K33 K34 K35 \
+        K36 K37 K38 K39 K40 K41 EN1_BTN   EN2_BTN K44 K45 K46 K47 K48 K49 \
+                K50 K51 K52 K53 K54           K55 K56 K57 K58 K59 \
+    >; \
+    sensor-bindings = <&inc_dec_kp EN1_INC EN1_DEC &inc_dec_kp EN2_INC EN2_DEC>; \
 };
 
-&right_encoder {
-    resolution = <2>;
-};
-
-&soft_off {
-    hold-time-ms = <2000>;
-};
-
-/ {
-
-    macros {
-        #include "macros.dtsi"
-    };
-
-    combos {
-        #include "combos.dtsi"
-    };
-
-    keymap {
-        compatible = "zmk,keymap";
-
-        LAYER(Default,
-            &kp ESC   &kp NUM_1  &kp NUM_2  &kp NUM_3  &kp NUM_4  &kp NUM_5                          &kp NUM_6  &kp NUM_7  &kp NUM_8  &kp NUM_9  &kp NUM_0  &to_game
-            &kp TAB   &kp Q      &kp W      &kp E      &kp R      &kp T                              &kp Y      &kp U      &kp I      &kp O      &kp P      &kp 0x64
-            &kp LCTL  A_L1       &kp S      &kp D      &kp F      &kp G                              &kp H      &kp J      &kp K      &kp L      SCLN_L2    &kp QUOT
-            SPCCDT_L  &kp Z      &kp X      &kp C      &kp V      &kp B                              &kp N      &kp M      &kp CMMA   &kp DOT    &kp FSLH   SPCCDT_R
-                                 &kp LALT   &kp LGUI   &kp LBKT   DEL_L1    &kp SPC      &kp BKSP    RET_L2     &kp RBKT   &kp RALT   &kp RGUI
-            // Encoder bindings, increment, decrement, and press
-            PGDN PGUP XXXXX
-            C_VOL_UP C_VOL_DN M_MUTE
-
-            // Four way encoder bindings, up, down, left, right, press
-            UP_ARROW DOWN_ARROW LEFT_ARROW RIGHT_ARROW ENTER
-        )
-
-        LAYER(Raise,
-            UNLCK  &kp F1    &kp F2    &kp F3    &kp F4    &kp F5                    &kp F6    &kp F7    &kp F8    &kp F9    &kp F10   &kp F11
-            ______ &kp NUM_1 &kp NUM_2 &kp NUM_3 &kp NUM_4 &kp NUM_5                 &kp NUM_6 &kp NUM_7 &kp NUM_8 &kp NUM_9 &kp NUM_0 &kp F12
-            ______ ______    ______    &kp PRCNT &kp EQL   &kp PLUS                  &kp MINUS &kp UNDER &kp CARET ______    ______    ______
-            ______ ______    ______    ______    ______    ______                    &kp DLLR  &kp ASTRK &kp AMPS  ______    ______    ______
-                             ______    ______    ______    ______   ______   ______  ______    ______    ______    ______
-            // Encoder bindings, increment, decrement, and press
-            PGDN PGUP XXXXX
-            C_VOL_UP C_VOL_DN M_MUTE
-
-            // Four way encoder bindings, up, down, left, right, press
-            UP_ARROW DOWN_ARROW LEFT_ARROW RIGHT_ARROW ENTER
-        )
-
-        LAYER(Lower,
-            BTCLR  &bt_pc   &bt_mac  PHONE_BT TAB_BT   BT5                      ______   ______     ______  ______ &t_mac &toggle_bt_usb
-            ______ ______   &kp UARW ______   ______   ______                   ______   ______     ______  ______ ______ &to_usb
-            ______ &kp LARW &kp DARW &kp RARW &kp LBKT ______                   &kp 0x32 &kp RBKT   ______  ______ ______ ______
-            ______ PREVI    PLAY     NEXT     ______   ______                   ______   &kp TILDE2 ______  ______ ______ &to_bt
-                            ______   ______   ______   &kp GRAV ______  ______  ______   ______     ______  ______
-            // Encoder bindings, increment, decrement, and press
-            PGDN PGUP XXXXX
-            C_VOL_UP C_VOL_DN M_MUTE
-
-            // Four way encoder bindings, up, down, left, right, press
-            UP_ARROW DOWN_ARROW LEFT_ARROW RIGHT_ARROW ENTER
-        )
-
-        LAYER(Gaming,
-            &kp ESC  &kp NUM_1 &kp NUM_2 &kp NUM_3 &kp NUM_4 &kp NUM_5                    &kp NUM_6 &kp NUM_7 &kp NUM_8 &kp NUM_9 &kp NUM_0 &from_game
-            &kp TAB  &kp Q     &kp W     &kp E     &kp R     &kp T                        &kp Y     &kp U     &kp I     &kp O     &kp P     &kp 0x64
-            &kp LCTL &kp A     &kp S     &kp D     &kp F     &kp G                        &kp H     &kp J     &kp K     &kp L     &kp SCLN  &kp QUOT
-            &kp LSFT &kp Z     &kp X     &kp C     &kp V     &kp B                        &kp N     &kp M     &kp CMMA  &kp DOT   &kp FSLH  SPCCDT_R
-                               &kp LALT  &kp RET   &kp M     &kp LALT &kp SPC    &kp BKSP RET_L4    &kp RBKT  &kp RALT  &kp RGUI
-            // Encoder bindings
-            GAME_2 GAME_3 GAME_1
-            C_VOL_UP C_VOL_DN M_MUTE
-
-            // Four way encoder bindings, up, down, left, right, press
-            UP_ARROW DOWN_ARROW LEFT_ARROW RIGHT_ARROW ENTER
-        )
-
-        LAYER(GamingAlt,
-            ______ &kp F1 &kp F2 &kp F3 &kp F4 &kp F5                  &kp F6 &kp F7 &kp F8 &kp F9 &kp F10 &kp F11
-            ______ ______ ______ ______ ______ ______                  ______ KP_1   KP_2   KP_3   ______  &kp F12
-            ______ ______ ______ ______ ______ ______                  ______ KP_4   KP_5   KP_6   ______  ______
-            ______ ______ ______ ______ ______ ______                  ______ KP_7   KP_8   KP_9   ______  ______
-                          ______ ______ ______ &kp DEL ______  ______  ______ ______ ______ KP_0
-            // Encoder bindings
-            GAME_2 GAME_3 GAME_1
-            C_VOL_UP C_VOL_DN M_MUTE
-
-            // Four way encoder bindings, up, down, left, right, press
-            UP_ARROW DOWN_ARROW LEFT_ARROW RIGHT_ARROW ENTER
-        )
-
-        LAYER(Mac,
-            &kp ESC  &kp NUM_1 &kp NUM_2 &kp NUM_3 &kp NUM_4 &kp NUM_5                  &kp NUM_6 &kp NUM_7 &kp NUM_8 &kp NUM_9 &kp NUM_0 &f_mac
-            &kp TAB  &kp Q     &kp W     &kp E     &kp R     &kp T                      &kp Y     &kp U     &kp I     &kp O     &kp P     &kp 0x64
-            &kp LCTL A_L6      &kp S     &kp D     &kp F     &kp G                      &kp H     &kp J     &kp K     &kp L     SCLN_L7   &kp QUOT
-            SPCCDT_L &kp Z     &kp X     &kp C     &kp V     &kp B                      &kp N     &kp M     &kp CMMA  &kp DOT   &kp FSLH  SPCCDT_R
-                               &kp LALT  &kp LGUI  &kp LBKT  DEL_L6 &kp SPC  &kp BKSP   RET_L7    &kp RBKT  &kp RALT  &kp RGUI
-            // Encoder bindings, increment, decrement, and press
-            PGDN PGUP XXXXX
-            C_VOL_UP C_VOL_DN M_MUTE
-
-            // Four way encoder bindings, up, down, left, right, press
-            UP_ARROW DOWN_ARROW LEFT_ARROW RIGHT_ARROW ENTER
-        )
-
-        LAYER(MacRaise,
-            ______ &kp F1    &kp F2    &kp F3    &kp F4    &kp F5                    &kp F6    &kp F7    &kp F8    &kp F9    &kp F10   &kp F11
-            ______ &kp NUM_1 &kp NUM_2 &kp NUM_3 &kp NUM_4 &kp NUM_5                 &kp NUM_6 &kp NUM_7 &kp NUM_8 &kp NUM_9 &kp NUM_0 &kp F12
-            ______ ______    ______    &kp PRCNT &kp EQL   &kp PLUS                  &kp MINUS &kp UNDER &kp CARET ______    ______    ______
-            ______ ______    ______    ______    ______    ______                    &kp DLLR  &kp ASTRK &kp AMPS  ______    ______    ______
-                             ______    ______    ______    ______   ______   ______  ______    ______    ______    ______
-            // Encoder bindings, increment, decrement, and press
-            PGDN PGUP XXXXX
-            C_VOL_UP C_VOL_DN M_MUTE
-
-            // Four way encoder bindings, up, down, left, right, press
-            UP_ARROW DOWN_ARROW LEFT_ARROW RIGHT_ARROW ENTER
-        )
-
-        LAYER(MacLower,
-            BTCLR  &bt_pc   &bt_mac  PHONE_BT TAB_BT   BT5                      ______   ______     ______  ______ &f_mac &toggle_bt_usb
-            ______ ______   &kp UARW ______   ______   ______                   ______   ______     ______  ______ ______ &to_usb
-            ______ &kp LARW &kp DARW &kp RARW &kp LBKT ______                   &kp 0x32 &kp RBKT   ______  ______ ______ ______
-            ______ PREVI    PLAY     NEXT     ______   ______                   ______   &kp TILDE  ______  ______ ______ &to_bt
-                            ______   ______   ______   &kp GRAV ______  ______  ______   ______     ______  ______
-
-            // Encoder bindings, increment, decrement, and press
-            PGDN PGUP XXXXX
-            C_VOL_UP C_VOL_DN M_MUTE
-
-            // Four way encoder bindings, up, down, left, right, press
-            UP_ARROW DOWN_ARROW LEFT_ARROW RIGHT_ARROW ENTER
-        )
-    };
-};
+#include "include/base.dtsi"
