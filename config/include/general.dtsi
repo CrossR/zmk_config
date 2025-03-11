@@ -21,6 +21,7 @@
 };
 
 // Mouse scroll settings
+#undef ZMK_POINTING_DEFAULT_SCRL_VAL
 #define ZMK_POINTING_DEFAULT_SCRL_VAL 25
 
 &msc_input_listener { input-processors = <&zip_scroll_scaler 2 1>; };
