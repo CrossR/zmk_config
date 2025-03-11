@@ -44,7 +44,7 @@ LAYER(RAISE_LAYER, "Raise",
                              ______,      ______,      ______,      ______,     ______,    ______,    ______,      ______,      ______,      ______,
     // Encoder bindings, increment, decrement, and press
     PGDN, PGUP, XXXXX,
-    C_VOL_UP, C_VOL_DN, M_MUTE,
+    C_VOL_UP, C_VOL_DN, &kp M_MUTE,
 
     // Four way encoder bindings, up, down, left, right, press
     UP_ARROW, DOWN_ARROW, LEFT_ARROW, RIGHT_ARROW, ENTER
@@ -58,7 +58,7 @@ LAYER(LOWER_LAYER, "Lower",
                              ______,      ______,      ______,      &kp GRAV,   ______,    ______,    ______,      ______,      ______,      ______,
     // Encoder bindings, increment, decrement, and press
     PGDN, PGUP, XXXXX,
-    C_VOL_UP, C_VOL_DN, M_MUTE,
+    C_VOL_UP, C_VOL_DN, &kp M_MUTE,
 
     // Four way encoder bindings, up, down, left, right, press
     UP_ARROW, DOWN_ARROW, LEFT_ARROW, RIGHT_ARROW, ENTER
@@ -72,7 +72,7 @@ LAYER(GAMING_LAYER, "Gaming",
                              &kp LALT,    &kp RET,     &kp M,       &kp LALT,   &kp SPC,    &kp BKSP,    RET_L4,      &kp RBKT,    &kp RALT,    &kp RGUI,
     // Encoder bindings
     GAME_2, GAME_3, GAME_1,
-    C_VOL_UP, C_VOL_DN, M_MUTE,
+    C_VOL_UP, C_VOL_DN, &kp M_MUTE,
 
     // Four way encoder bindings, up, down, left, right, press
     UP_ARROW, DOWN_ARROW, LEFT_ARROW, RIGHT_ARROW, ENTER
@@ -86,7 +86,7 @@ LAYER(GAMING_ALT_LAYER, "Gaming Alt",
                              ______,      ______,      ______,      &kp DEL,    ______,    ______,    ______,      ______,      ______,      KP_0,
     // Encoder bindings
     GAME_2, GAME_3, GAME_1,
-    C_VOL_UP, C_VOL_DN, M_MUTE,
+    C_VOL_UP, C_VOL_DN, &kp M_MUTE,
 
     // Four way encoder bindings, up, down, left, right, press
     UP_ARROW, DOWN_ARROW, LEFT_ARROW, RIGHT_ARROW, ENTER
@@ -100,7 +100,7 @@ LAYER(MAC_LAYER, "Mac",
                              &kp LALT,    &kp LGUI,    &kp LBKT,    DEL_L6,     &kp SPC,    &kp BKSP,   RET_L7,      &kp RBKT,    &kp RALT,    &kp RGUI,
     // Encoder bindings, increment, decrement, and press
     PGDN, PGUP, XXXXX,
-    C_VOL_UP, C_VOL_DN, M_MUTE,
+    C_VOL_UP, C_VOL_DN, &kp M_MUTE,
 
     // Four way encoder bindings, up, down, left, right, press
     UP_ARROW, DOWN_ARROW, LEFT_ARROW, RIGHT_ARROW, ENTER
@@ -114,7 +114,7 @@ LAYER(MAC_RAISE_LAYER, "Mac Raise",
                              ______,      ______,      ______,      ______,     ______,    ______,    ______,      ______,      ______,      ______,
     // Encoder bindings, increment, decrement, and press
     PGDN, PGUP, XXXXX,
-    C_VOL_UP, C_VOL_DN, M_MUTE,
+    C_VOL_UP, C_VOL_DN, &kp M_MUTE,
 
     // Four way encoder bindings, up, down, left, right, press
     UP_ARROW, DOWN_ARROW, LEFT_ARROW, RIGHT_ARROW, ENTER
@@ -129,7 +129,7 @@ LAYER(MAC_LOWER_LAYER, "Mac Lower",
 
     // Encoder bindings, increment, decrement, and press
     PGDN, PGUP, XXXXX,
-    C_VOL_UP, C_VOL_DN, M_MUTE,
+    C_VOL_UP, C_VOL_DN, &kp M_MUTE,
 
     // Four way encoder bindings, up, down, left, right, press
     UP_ARROW, DOWN_ARROW, LEFT_ARROW, RIGHT_ARROW, ENTER
