@@ -15,6 +15,18 @@
     resolution = <2>;
 };
 
+// Drop the soft-off hold time
 &soft_off {
     hold-time-ms = <2000>;
+};
+
+// Mouse scroll settings
+#define ZMK_POINTING_DEFAULT_SCRL_VAL 25
+
+&msc_input_listener { input-processors = <&zip_scroll_scaler 2 1>; };
+
+&msc {
+    acceleration-exponent = <1>;
+    time-to-max-speed-ms = <100>;
+    delay-ms = <0>;
 };

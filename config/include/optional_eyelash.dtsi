@@ -1,0 +1,11 @@
+// Optional, Eyelash Sofle Specific Config
+
+#define ZMK_POINTING_DEFAULT_MOVE_VAL 1200
+
+&msc_input_listener { input-processors = <&zip_scroll_scaler 2 1>; };
+
+&mmv {
+    time-to-max-speed-ms = <500>;
+    acceleration-exponent = <1>;
+    trigger-period-ms = <16>;
+};

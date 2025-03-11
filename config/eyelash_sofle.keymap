@@ -14,8 +14,8 @@ K12, K13, K14, K15, K16, K17,           K18, K19, K20, K21, K22, K23, \
 K24, K25, K26, K27, K28, K29,           K30, K31, K32, K33, K34, K35, \
 K36, K37, K38, K39, K40, K41,           K44, K45, K46, K47, K48, K49, \
           K50, K51, K52, K53, K54, K55, K56, K57, K58, K59, \
-          EN1_INC, EN1_DEC, EN1_BTN, \
-          EN2_INC, EN2_DEC, EN2_BTN, \
+          ENCODER_1, EN1_BTN, \
+          ENCODER_2, EN2_BTN, \
           F_UP, F_DN, F_LF, F_RT, F_PR \
 ) \
 LAYER { \
@@ -27,7 +27,7 @@ LAYER { \
         K36 K37 K38 K39 K40 K41          F_RT          K44 K45 K46 K47 K48 K49 \
         EN1_BTN K50 K51 K52 K53 K54      F_PR      K55 K56 K57 K58 K59 \
     >; \
-    sensor-bindings = <&inc_dec_kp EN1_INC EN1_DEC>; \
+    sensor-bindings = <ENCODER_1>; \
 };
 
 #include "include/base.dtsi"
