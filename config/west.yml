@@ -2,10 +2,15 @@ manifest:
   remotes:
     - name: zmkfirmware
       url-base: https://github.com/zmkfirmware
+    - name: a741
+      url-base: https://github.com/a741725193
   projects:
     - name: zmk
       remote: zmkfirmware
       revision: main
       import: app/west.yml
+    - name: eyelash_sofle
+      remote: a741
+      revision: main
   self:
     path: config
