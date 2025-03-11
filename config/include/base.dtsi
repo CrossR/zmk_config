@@ -1,7 +1,5 @@
 #include "general.dtsi"
 
-/ {
-
 // Set encoder resolutions
 &left_encoder {
     resolution = <2>;
