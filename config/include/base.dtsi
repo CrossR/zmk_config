@@ -58,7 +58,7 @@ LAYER(Lower,
     BTCLR,      PC_BT,       MAC_BT,      PHONE_BT,    TAB_BT,      BT5,                              ______,      ______,      ______,      ______,      L_MAC,       TOG_OUT,
     ______,     ______,      &kp UARW,    ______,      ______,      ______,                           ______,      ______,      ______,      ______,      ______,      TOG_USB,
     ______,     &kp LARW,    &kp DARW,    &kp RARW,    &kp LBKT,    ______,                           &kp 0x32,    &kp RBKT,    ______,      ______,      ______,      ______,
-    ______,     PREVI,       PLAY,        NEXT,        ______,      ______,                           ______,      &kp TILDE2,  ______,      ______,      ______,      TOG_BT,
+    ______,     PREVI,       PLAY,        NEXT,        ______,      ______,                           ______,      &kp TILDE2,  ______,      ______,      ______,      TOG_BLE,
                              ______,      ______,      ______,      &kp GRAV,   ______,    ______,    ______,      ______,      ______,      ______,
     // Encoder bindings, increment, decrement, and press
     PGDN, PGUP, XXXXX,
@@ -125,10 +125,10 @@ LAYER(MacRaise,
 )
 
 LAYER(MacLower,
-    BTCLR,      PC_PT,       MAC_BT,      PHONE_BT,    TAB_BT,      BT5,                              ______,      ______,      ______,      ______,      L_MAC,       TOG_OUT,
+    BTCLR,      PC_BT,       MAC_BT,      PHONE_BT,    TAB_BT,      BT5,                              ______,      ______,      ______,      ______,      L_MAC,       TOG_OUT,
     ______,     ______,      &kp UARW,    ______,      ______,      ______,                           ______,      ______,      ______,      ______,      ______,      TOG_USB,
     ______,     &kp LARW,    &kp DARW,    &kp RARW,    &kp LBKT,    ______,                           &kp 0x32,    &kp RBKT,    ______,      ______,      ______,      ______,
-    ______,     PREVI,       PLAY,        NEXT,        ______,      ______,                           ______,      &kp TILDE,   ______,      ______,      ______,      TOG_BT,
+    ______,     PREVI,       PLAY,        NEXT,        ______,      ______,                           ______,      &kp TILDE,   ______,      ______,      ______,      TOG_BLE,
                              ______,      ______,      ______,      &kp GRAV,   ______,    ______,    ______,      ______,      ______,      ______,
 
     // Encoder bindings, increment, decrement, and press
