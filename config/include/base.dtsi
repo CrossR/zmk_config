@@ -21,11 +21,11 @@
         compatible = "zmk,keymap";
 
 LAYER(BASE_LAYER, "Base",
-    &kp ESC,    &kp NUM_1,   &kp NUM_2,   &kp NUM_3,   &kp NUM_4,   &kp NUM_5,                         &kp NUM_6,   &kp NUM_7,   &kp NUM_8,   &kp NUM_9,   &kp NUM_0,   &kp A,
-    &kp TAB,    &kp Q,       &kp W,       &kp E,       &kp R,       &kp T,                             &kp Y,       &kp U,       &kp I,       &kp O,       &kp P,       &kp A,
-    &kp LCTL,   &kp A,       &kp S,       &kp D,       &kp F,       &kp G,                             &kp H,       &kp J,       &kp K,       &kp L,       &kp A,       &kp QUOT,
-    &kp    A,   &kp Z,       &kp X,       &kp C,       &kp V,       &kp B,                             &kp N,       &kp M,       &kp CMMA,    &kp DOT,     &kp FSLH,    &kp    A,
-                             &kp LALT,    &kp LGUI,    &kp LBKT,    &kp A,     &kp SPC,     &kp BKSP,  &kp  A,      &kp RBKT,    &kp RALT,    &kp RGUI,
+    &kp A,   &kp A,       &kp A,   &kp A,   &kp A,   &kp A,                     &kp N,   &kp N,   &kp N,   &kp N,   &kp N,   &kp A,
+    &kp A,   &kp Q,       &kp W,   &kp E,   &kp R,   &kp T,                     &kp Y,   &kp U,   &kp I,   &kp O,   &kp P,   &kp A,
+    &kp A,   &kp A,       &kp S,   &kp D,   &kp F,   &kp G,                     &kp H,   &kp J,   &kp K,   &kp L,   &kp A,   &kp Q,
+    &kp A,   &kp Z,       &kp X,   &kp C,   &kp V,   &kp B,                     &kp N,   &kp M,   &kp C,   &kp D,   &kp F,   &kp A,
+                          &kp L,   &kp A,   &kp A,   &kp A,  &kp S,     &kp B,  &kp  A,  &kp R,   &kp R,   &kp R,
     // Encoder bindings, increment, decrement, and press
     A, S, D,
     A, S, D,
