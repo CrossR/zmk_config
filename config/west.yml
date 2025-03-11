@@ -9,7 +9,7 @@ manifest:
       remote: zmkfirmware
       revision: main
       import: app/west.yml
-    - name: eyelash_sofle
+    - name: zmk-sofle
       remote: a741
       revision: main
   self:
