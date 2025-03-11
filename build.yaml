@@ -26,10 +26,10 @@ include:
     shield: splitkb_aurora_sofle_right
 
   - board: eyelash_sofle_left
-    shield: nice_view
+    shield: nice_view nice_view_gem
     snippet: studio-rpc-usb-uart
   - board: eyelash_sofle_right
-    shield: nice_view
+    shield: nice_view nice_view_gem
 
   - board: nice_nano
     shield: settings_reset
