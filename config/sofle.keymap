@@ -1,57 +1,3 @@
-#include <behaviors.dtsi>
-#include <dt-bindings/zmk/keys.h>
-#include <dt-bindings/zmk/bt.h>
-#include <dt-bindings/zmk/outputs.h>
-#include "common.h"
-
-// Shift on Hold / Parenthesis on Tap
-#define SPCCDT_L &mt LSFT LPAR
-#define SPCCDT_R &mt RSFT RPAR
-
-// Layer on Hold / Key on Tap
-#define DEL_L1  &lt RAISE DEL
-#define A_L1    &lt RAISE A
-
-#define RET_L2  &lt LOWER RET
-#define SCLN_L2 &lt LOWER SCLN
-
-#define RET_L4  &lt GAME_ALT RET
-
-#define DEL_L6  &lt MAC_RAISE DEL
-#define A_L6    &lt MAC_RAISE A
-
-#define RET_L7  &lt MAC_LOWER RET
-#define SCLN_L7 &lt MAC_LOWER SCLN
-
-// Short numpad keys
-#define KP_1 &kp KP_N1
-#define KP_2 &kp KP_N2
-#define KP_3 &kp KP_N3
-#define KP_4 &kp KP_N4
-#define KP_5 &kp KP_N5
-#define KP_6 &kp KP_N6
-#define KP_7 &kp KP_N7
-#define KP_8 &kp KP_N8
-#define KP_9 &kp KP_N9
-#define KP_0 &kp KP_N0
-
-// Media Keys
-#define PREVI &kp C_PREV
-#define PLAY  &kp C_PLAY
-#define NEXT  &kp C_NEXT
-
-// Game keys
-// Random-ish unused buttons for binding
-#define GAME_1 LS(LC(LA(N1)))
-#define GAME_2 LS(LC(LA(N2)))
-#define GAME_3 LS(LC(LA(N3)))
-
-// ZMK Studio
-#define UNLCK &studio_unlock
-
-// TODO: Encoder push missing.
-// TODO: Mouse HID for wheel events.
-
 // Set encoder resolutions
 &left_encoder {
     resolution = <2>;
@@ -72,44 +18,25 @@
     };
 
     combos {
-        compatible = "zmk,combos";
-
-        combo_soft_off {
-            timeout-ms = <500>;
-            key-positions = <0 11 50 59>;
-            layers = <BASE>;
-            bindings = <&soft_off>;
-        };
-
-        cmd_for_mac {
-            timeout-ms = <500>;
-            key-positions = <24 36>;
-            layers = <MAC MAC_RAISE MAC_LOWER>;
-            bindings = <&kp LGUI>;
-        };
+        #include "combos.dtsi"
     };
 
     keymap {
         compatible = "zmk,keymap";
 
-        default_layer {
-            display-name = "Default";
-// ------------------------------------------------------------------------------------------------------------
-// |  ESC  |  1   |  2  |  3   |  4   |   5    |                  |    6   |  7 |  8  |  9  |   0  |   L³  |
-// |  TAB  |  Q   |  W  |  E   |  R   |   T    |                  |    Y   |  U |  I  |  O  |   P  |   \   |
-// | ⌃     | A/L¹ |  S  |  D   |  F   |   G    |                  |    H   |  J |  K  |  L  | ;/L² |   '   |
-// | ( / ⇧ |  Z   |  X  |  C   |  V   |   B    |       |  | MUTE  |    N   |  M |  ,  |  .  |   /  | ) / ⇧ |
-//                | ALT | GUI  |  [   | DEL/L¹ | SPACE |  | BKSPC | RET/L² |  ] | ALT | GUI |
-            bindings = <
-&kp ESC  &kp NUM_1 &kp NUM_2 &kp NUM_3 &kp NUM_4 &kp NUM_5                  &kp NUM_6 &kp NUM_7 &kp NUM_8 &kp NUM_9 &kp NUM_0 &to_game
-&kp TAB  &kp Q     &kp W     &kp E     &kp R     &kp T                      &kp Y     &kp U     &kp I     &kp O     &kp P     &kp 0x64
-&kp LCTL A_L1      &kp S     &kp D     &kp F     &kp G                      &kp H     &kp J     &kp K     &kp L     SCLN_L2   &kp QUOT
-SPCCDT_L &kp Z     &kp X     &kp C     &kp V     &kp B  XXXXX    &kp M_MUTE &kp N     &kp M     &kp CMMA  &kp DOT   &kp FSLH  SPCCDT_R
-                   &kp LALT  &kp LGUI  &kp LBKT  DEL_L1 &kp SPC  &kp BKSP   RET_L2    &kp RBKT  &kp RALT  &kp RGUI
-            >;
+        LAYER(Default,
+            &kp ESC   &kp NUM_1  &kp NUM_2  &kp NUM_3  &kp NUM_4  &kp NUM_5                          &kp NUM_6  &kp NUM_7  &kp NUM_8  &kp NUM_9  &kp NUM_0  &to_game
+            &kp TAB   &kp Q      &kp W      &kp E      &kp R      &kp T                              &kp Y      &kp U      &kp I      &kp O      &kp P      &kp 0x64
+            &kp LCTL  A_L1       &kp S      &kp D      &kp F      &kp G                              &kp H      &kp J      &kp K      &kp L      SCLN_L2    &kp QUOT
+            SPCCDT_L  &kp Z      &kp X      &kp C      &kp V      &kp B                              &kp N      &kp M      &kp CMMA   &kp DOT    &kp FSLH   SPCCDT_R
+                                 &kp LALT   &kp LGUI   &kp LBKT   DEL_L1    &kp SPC      &kp BKSP    RET_L2     &kp RBKT   &kp RALT   &kp RGUI
+            // Encoder bindings, increment, decrement, and press
+            PGDN PGUP XXXXX
+            C_VOL_UP C_VOL_DN M_MUTE
 
-            sensor-bindings = <&inc_dec_kp PGDN PGUP &inc_dec_kp C_VOL_UP C_VOL_DN>;
-        };
+            // Four way encoder bindings, up, down, left, right, press
+            UP_ARROW DOWN_ARROW LEFT_ARROW RIGHT_ARROW ENTER
+        )
 
         raise_layer {
             display-name = "Raise";
