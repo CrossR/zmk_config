@@ -23,9 +23,14 @@
 #define TAB_BT    &bt  BT_SEL 3
 #define BT5       &bt  BT_SEL 4
 
+// Output Management
 #define TOG_OUT   &out OUT_TOG
 #define TOG_BLE   &out OUT_BLE
 #define TOG_USB   &out OUT_USB
+
+// Regular layer toggles
+#define L_MAC    &tog MAC
+#define L_GAME   &tog GAME
 
 // Shift on Hold / Parenthesis on Tap
 #define SPCCDT_L &mt LSFT LPAR
