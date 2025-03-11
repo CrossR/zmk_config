@@ -17,8 +17,7 @@ volume_encoder: volume_encoder {
     compatible = "zmk,behavior-sensor-rotate";
     label = "VOLUME_ENCODER";
     #sensor-binding-cells = <0>;
-    bindings = <&kp VOL_DOWN>, <&kp VOL_UP>;
-    tap-ms = <100>;
+    bindings = <&kp K_VOL_DOWN>, <&kp K_VOL_UP>;
 };
 
 game_encoder: game_encoder {
@@ -26,5 +25,4 @@ game_encoder: game_encoder {
     label = "GAME_ENCODER";
     #sensor-binding-cells = <0>;
     bindings = <&kp GAME_2>, <&kp GAME_3>;
-    tap-ms = <100>;
 };
