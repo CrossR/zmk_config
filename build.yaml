@@ -28,7 +28,7 @@ include:
     shield: nice_view
     snippet: studio-rpc-usb-uart
   - board: eyelash_sofle_right
-    shield: nice_view_custom
+    shield: nice_view
 
   - board: nice_nano
     shield: settings_reset
