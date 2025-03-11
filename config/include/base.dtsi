@@ -15,10 +15,6 @@
 
 / {
 
-    macros {
-        #include "macros.dtsi"
-    };
-
     combos {
         #include "combos.dtsi"
     };
