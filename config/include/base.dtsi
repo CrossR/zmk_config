@@ -33,7 +33,7 @@ LAYER(RAISE_LAYER, "Raise",
     &volume_encoder, &kp M_MUTE,
 
     // Four way encoder bindings, up, down, left, right, press
-    &kp UP_ARROW, &kp DOWN_ARROW, &kp LEFT_ARROW, &kp RIGHT_ARROW, &kp ENTER
+    &rgb_ug RGB_BRI, &rgb_ug RGB_BRD, &rgb_ug RGB_EFR, &rgb_ug RGB_EFF, &rgb_ug RGB_TOG
 )
 
 LAYER(LOWER_LAYER, "Lower",
@@ -47,7 +47,7 @@ LAYER(LOWER_LAYER, "Lower",
     &volume_encoder, &kp M_MUTE,
 
     // Four way encoder bindings, up, down, left, right, press
-    &kp UP_ARROW, &kp DOWN_ARROW, &kp LEFT_ARROW, &kp RIGHT_ARROW, &kp ENTER
+    &rgb_ug RGB_SPI, &rgb_ug RGB_SPD, &rgb_ug RGB_HUI, &rgb_ug RGB_HUD, &rgb_ug RGB_TOG
 )
 
 LAYER(GAMING_LAYER, "Gaming",
