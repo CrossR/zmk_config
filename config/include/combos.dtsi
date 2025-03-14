@@ -1,0 +1,17 @@
+combos {
+    compatible = "zmk,combos";
+
+    combo_soft_off {
+        timeout-ms = <500>;
+        key-positions = <0 11 50 59>;
+        layers = <BASE>;
+        bindings = <&soft_off>;
+    };
+
+    cmd_for_mac {
+        timeout-ms = <500>;
+        key-positions = <24 36>;
+        layers = <MAC MAC_RAISE MAC_LOWER>;
+        bindings = <&kp LGUI>;
+    };
+};

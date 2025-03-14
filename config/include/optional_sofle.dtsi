@@ -1,0 +1,5 @@
+// Optional, Sofle Specific Config
+
+&right_encoder {
+    resolution = <2>;
+};

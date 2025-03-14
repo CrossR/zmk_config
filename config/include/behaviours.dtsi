@@ -1,0 +1,28 @@
+
+scroll_encoder: scroll_encoder {
+    compatible = "zmk,behavior-sensor-rotate";
+    #sensor-binding-cells = <0>;
+    bindings = <&msc SCRL_DOWN>, <&msc SCRL_UP>;
+    tap-ms = <100>;
+};
+
+none_enc: none_enc {
+    compatible = "zmk,behavior-sensor-rotate";
+    label = "NONE_ENCODER";
+    #sensor-binding-cells = <0>;
+    bindings = <&none>, <&none>;
+};
+
+volume_encoder: volume_encoder {
+    compatible = "zmk,behavior-sensor-rotate";
+    label = "VOLUME_ENCODER";
+    #sensor-binding-cells = <0>;
+    bindings = <&kp C_VOL_DN>, <&kp C_VOL_UP>;
+};
+
+game_encoder: game_encoder {
+    compatible = "zmk,behavior-sensor-rotate";
+    label = "GAME_ENCODER";
+    #sensor-binding-cells = <0>;
+    bindings = <&kp GAME_2>, <&kp GAME_3>;
+};
