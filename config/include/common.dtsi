@@ -73,6 +73,7 @@
 #define GAME_1 LS(LC(LA(N1)))
 #define GAME_2 LS(LC(LA(N2)))
 #define GAME_3 LS(LC(LA(N3)))
+#define GAME_4 LS(LC(LA(N4)))
 
 // ZMK Studio
 #define UNLCK &studio_unlock

@@ -61,7 +61,7 @@ LAYER(GAMING_LAYER, "Gaming",
     &volume_encoder, &kp M_MUTE,
 
     // Four way encoder bindings, up, down, left, right, press
-    &kp UP_ARROW, &kp DOWN_ARROW, &kp LEFT_ARROW, &kp RIGHT_ARROW, &kp ENTER
+    &kp UP_ARROW, &kp DOWN_ARROW, &kp LEFT_ARROW, &kp RIGHT_ARROW, &kp GAME_4
 )
 
 LAYER(GAMING_ALT_LAYER, "Gaming Alt",
